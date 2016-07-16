@@ -1,7 +1,7 @@
 function HomeController(){
-
+  this.person = "Matt";
 }
 
 angular
-      .module("myapp")
+      .module("app")
       .controller("HomeController", HomeController);

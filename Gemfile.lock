@@ -145,7 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-ui-router-rails (~> 0.2.15)
+  angular-ui-router-rails
   angularjs-rails
   byebug
   coffee-rails (~> 4.1.0)
