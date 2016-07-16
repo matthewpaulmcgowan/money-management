@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
 <head>
   <title>MoneyManagement</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  
+<div ui-view>
+  <%= yield %>
+</div>
 
 </body>
 </html>
