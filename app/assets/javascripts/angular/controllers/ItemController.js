@@ -1,4 +1,5 @@
-ItemController = function(item){
+function ItemController(item){
+  debugger;
   this.data = item.data;
 }
 

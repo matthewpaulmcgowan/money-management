@@ -9,7 +9,7 @@ angular
             })
             .state('item', {
               url: '/item',
-              templactUrl: '/templates/item/show.index.html',
+              templactUrl: '/templates/items/index.html',
               controller: "ItemController as item",
               resolve: {
                       items: function(ItemService){

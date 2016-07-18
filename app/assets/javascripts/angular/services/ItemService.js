@@ -1,7 +1,7 @@
-function ItemService = function ($http){
+ItemService = function ($http){
   this.getItems = function () {
-        return $http.get('/items');
-    };
+        return $http.get('http://localhost:3000/items');
+    }
 }
 
 angular
