@@ -11,8 +11,10 @@ angular
               url: '/item',
               templactUrl: '/templates/item/show.index.html',
               controller: "ItemController as item",
-              resolve{
-                //add in service http call to get list of items
+              resolve: {
+                      items: function(ItemService){
+                        return ItemService.getItems();
+                      }
               }
             })
 
