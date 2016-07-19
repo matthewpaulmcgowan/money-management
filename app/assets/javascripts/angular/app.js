@@ -7,10 +7,10 @@ angular
               templateUrl: '/templates/home/home.html',
               controller: "HomeController as home"
             })
-            .state('item', {
-              url: '/item',
+            .state('items', {
+              url: '/items',
               templateUrl: '/templates/items/index.html',
-              controller: "ItemController as item",
+              controller: "ItemsController as items",
               resolve: {
                       items: function(ItemService){
                         return ItemService.getItems();

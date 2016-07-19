@@ -1,4 +1,12 @@
 
-{{item.data}}
+{{items.data}}
 <h2>item index</h2>
+<h3>Frankly, Sir</h3>
 <p>Hello from the otherside</p>
+<form ng-submit="submit()" ng-controller="CreateItemController as create">
+  <label for="username">Username</label>
+    <input
+        name="name"
+        ng-model="create.username" />
+    <input type="submit" id="submit" value="Submit" />
+</form>
