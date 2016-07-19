@@ -3,10 +3,10 @@
 <h2>item index</h2>
 <h3>Frankly, Sir</h3>
 <p>Hello from the otherside</p>
-<form ng-submit="submit()" ng-controller="CreateItemController as create">
+<form ng-submit="createItem()" ng-controller="CreateItemController as create" name="form">
   <label for="username">Username</label>
     <input
         name="name"
-        ng-model="create.username" />
+        ng-model="create.name" />
     <input type="submit" id="submit" value="Submit" />
 </form>
