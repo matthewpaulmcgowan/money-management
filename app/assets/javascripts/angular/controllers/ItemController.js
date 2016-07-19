@@ -1,7 +1,8 @@
-function ItemController(item){
-  debugger;
-  this.data = item.data;
+function ItemController(items){
+  this.data = items.data;
 }
+
+ItemController.$inject = ['items'];
 
 angular
         .module("app")

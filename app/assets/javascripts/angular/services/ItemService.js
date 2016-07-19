@@ -1,8 +1,9 @@
-ItemService = function ($http){
+function ItemService($http){
   this.getItems = function () {
         return $http.get('http://localhost:3000/items');
     }
 }
+
 
 angular
       .module('app')
