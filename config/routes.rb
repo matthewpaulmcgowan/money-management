@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'users#home'
   resources :items
+  #match '/posts' => 'items#options', :constraints => {:method => 'OPTIONS'}, via: [:options]  
   #get '*path' => 'users#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

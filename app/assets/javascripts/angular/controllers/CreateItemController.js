@@ -6,9 +6,13 @@ function CreateItemController(ItemService, $state){
     var params = {
       name: ctrl.name
     }
-    debugger;
+
     ItemService
-         .createItem()
+         .createItem(params)
+         .then(function(response){
+           debugger;
+           console.log(response)
+         })
   }
 
   var redirectToIndex = function(){
