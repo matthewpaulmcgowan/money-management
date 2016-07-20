@@ -1,7 +1,11 @@
-function CreateItemController(ItemService){
+function CreateItemController(ItemService, $state){
   var ctrl = this;
 
-  var createItem = function(form){
+  ctrl.createItem = function(){
+
+    var params = {
+      name: ctrl.name
+    }
     debugger;
     ItemService
          .createItem()
@@ -10,10 +14,10 @@ function CreateItemController(ItemService){
   var redirectToIndex = function(){
     $state.href("items");
   }
-  redirectToIndex();
+  //redirectToIndex();
 }
 
-CreateItemController.$inject = ['ItemService'];
+CreateItemController.$inject = ['ItemService', '$state'];
 
 
 
