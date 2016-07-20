@@ -1,6 +1,11 @@
 angular
       .module("app", ['ui.router'])
-      .config(function($stateProvider, $urlRouterProvider){
+      .config(function($stateProvider, $urlRouterProvider, $httpProvider){
+
+        //$httpProvider.defaults.useXDomain = true;
+        //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        token = $("meta[name=\"csrf-token\"]").attr("content")
+          $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
         $stateProvider
             .state('home', {
               url: '/home',
