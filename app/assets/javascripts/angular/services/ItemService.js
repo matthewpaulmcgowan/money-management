@@ -4,7 +4,6 @@ function ItemService($http){
     }
 
   this.createItem = function(params){
-    debugger;
         return $http.post("http://localhost:3000/items", params);
   }
 }

@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.create(name: params[:item][:name])
     binding.pry
   end
 
