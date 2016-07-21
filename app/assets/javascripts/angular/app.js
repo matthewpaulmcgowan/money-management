@@ -32,10 +32,11 @@ angular
               }
             })
             .state('deleteItem', {
-              url: '/item/:id/',
-              controller: "ItemController as item",
+              params: {id: {}},
+              templateUrl: "/templates/items/delete.html",
               resolve: {
                       item: function(ItemService, $stateParams){
+                        debugger;
                         return ItemService.deleteItem($stateParams.id)
                       }
               }
