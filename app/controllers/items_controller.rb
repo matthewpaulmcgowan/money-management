@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  #skip_before_filter :verify_authenticity_token
+  
   def index
     @items = Item.all
     render json: @items
@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    binding.pry
+    @item = Item.find(params[:id].to_i)
+    render json: @item
   end
 end

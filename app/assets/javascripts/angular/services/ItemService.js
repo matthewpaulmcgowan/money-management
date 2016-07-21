@@ -8,8 +8,7 @@ function ItemService($http){
   }
 
   this.getItem = function(id){
-    debugger;
-    return $http.get("http//localhost:3000/items/" + id)
+    return $http.get("http://localhost:3000/items/" + id)
   }
 }
 
