@@ -26,4 +26,10 @@ class ItemsController < ApplicationController
     render json: @item
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.delete
+    render json: {}
+  end
+
 end
