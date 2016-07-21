@@ -1,7 +1,18 @@
 function ItemController(item){
   var ctrl = this;
   ctrl.data=item.data;
-  debugger;
+
+  this.editItem(){
+    var params = {
+      name: ctrl.name
+    }
+
+    ItemService
+         .updateItem(params)
+         .then(function(response){
+           $state.reload();
+         })
+  }
 }
 
 angular
