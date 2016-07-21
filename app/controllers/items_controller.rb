@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def index
     @items = Item.all
     render json: @items
@@ -19,4 +19,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id].to_i)
     render json: @item
   end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(name: params[:item][:name])
+    render json: @item
+  end
+
 end
