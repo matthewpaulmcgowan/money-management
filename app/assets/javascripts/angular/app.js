@@ -22,11 +22,12 @@ angular
               }
             })
             .state('editItem', {
-              url: '/item/:id/edit'
+              url: '/item/:id/edit',
               templateUrl: '/templates/items/edit.html',
               controller: "ItemController as item",
-              resolvs: {
+              resolve: {
                       item: function(ItemService, $stateParams){
+                        debugger;
                         return ItemService.getItem($stateParams.id)
                       }
               }
