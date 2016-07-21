@@ -40,6 +40,16 @@ angular
                       }
               }
             })
+            .state("searchItems", {
+              url: '/items/search',
+              templateUrl: '/templates/items/search.html',
+              controller: "ItemsController as items",
+              resolve: {
+                      items: function(ItemService){
+                        return ItemService.getItems();
+                      }
+              }
+            })
 
         $urlRouterProvider.otherwise("/home");
 
