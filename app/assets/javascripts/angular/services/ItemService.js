@@ -8,7 +8,11 @@ function ItemService($http){
   }
 
   this.getItem = function(id){
-    return $http.get("http://localhost:3000/items/" + id)
+      return $http.get("http://localhost:3000/items/" + id)
+  }
+
+  this.updateItem = function(params, id){
+      return $http.put("http://localhost:3000/items/" + id, params)
   }
 }
 
