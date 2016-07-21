@@ -3,7 +3,7 @@ var Item = {
     bindings: {
                 id: '=', name: '='
     },
-    controllerAs: "item"
+    controllerAs: "item",
   }
 
 angular
