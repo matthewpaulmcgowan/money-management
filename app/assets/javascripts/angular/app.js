@@ -27,7 +27,6 @@ angular
               controller: "ItemController as item",
               resolve: {
                       item: function(ItemService, $stateParams){
-                        debugger;
                         return ItemService.getItem($stateParams.id)
                       }
               }
