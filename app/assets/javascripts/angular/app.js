@@ -31,6 +31,14 @@ angular
                       }
               }
             })
+            .state('deleteItem', {
+              controller: "ItemController as item",
+              resolve: {
+                      item: function(ItemService, $stateParams){
+                        return ItemService.deleteItem($stateParams.id)
+                      }
+              }
+            })
 
         $urlRouterProvider.otherwise("/home");
 
