@@ -2,10 +2,9 @@ angular
       .module("app", ['ui.router'])
       .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
-        //$httpProvider.defaults.useXDomain = true;
-        //delete $httpProvider.defaults.headers.common['X-Requested-With'];
         token = $("meta[name=\"csrf-token\"]").attr("content")
-          $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+        $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+
         $stateProvider
             .state('home', {
               url: '/home',
@@ -19,6 +18,16 @@ angular
               resolve: {
                       items: function(ItemService){
                         return ItemService.getItems();
+                      }
+              }
+            })
+            .state('editItem', {
+              url: '/item/:id/edit'
+              templateUrl: '/templates/items/edit.html',
+              controller: "ItemController as item",
+              resolvs: {
+                      item: function(ItemService, $stateParams){
+                        return ItemService.getItem($stateParams.id)
                       }
               }
             })
