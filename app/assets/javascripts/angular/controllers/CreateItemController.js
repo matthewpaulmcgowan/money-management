@@ -7,15 +7,18 @@ function CreateItemController(ItemService, $state){
       name: ctrl.name
     }
 
+    var redirectToIndex = function(){
+      $state.reload();
+    }
+
     ItemService
          .createItem(params)
          .then(function(response){
-           debugger;
-           console.log(response)
+           redirectToIndex();
          })
   }
 
-  var redirectToIndex = function(){
+  this.redirectToIndex = function(){
     $state.href("items");
   }
   //redirectToIndex();

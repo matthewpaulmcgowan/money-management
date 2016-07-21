@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(name: params[:item][:name])
-    binding.pry
+    @items = Item.all
+    render json: {}
   end
 
   def options
