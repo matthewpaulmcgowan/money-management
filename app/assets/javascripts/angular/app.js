@@ -32,6 +32,7 @@ angular
               }
             })
             .state('deleteItem', {
+              url: '/item/:id/',
               controller: "ItemController as item",
               resolve: {
                       item: function(ItemService, $stateParams){
