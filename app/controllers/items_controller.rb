@@ -14,4 +14,8 @@ class ItemsController < ApplicationController
   def options
     binding.pry
   end
+
+  def show
+    binding.pry
+  end
 end
