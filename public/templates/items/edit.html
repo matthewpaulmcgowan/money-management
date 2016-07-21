@@ -1,6 +1,7 @@
-<form ng-submit="item.editItem()" ng-controller="EditItemController as item" name="form">
+<form ng-submit="item.editItem()" name="form">
   <label for="name">Name</label>
-  <input name="name" ng-model="c.name" />
+  <input name="name" ng-model="item.name" />
   <input type="submit" id="submit" value="Submit" />
 </form>
-<h1>{{item.name}}</h1>
+<h1>{{item.data.name}}</h1>
+<p>hello</p>
