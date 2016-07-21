@@ -33,10 +33,9 @@ angular
             })
             .state('deleteItem', {
               params: {id: {}},
-              templateUrl: "/templates/items/delete.html",
+              controller: "DeleteItemController",
               resolve: {
                       item: function(ItemService, $stateParams){
-                        debugger;
                         return ItemService.deleteItem($stateParams.id)
                       }
               }
