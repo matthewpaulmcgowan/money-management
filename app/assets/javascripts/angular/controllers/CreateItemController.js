@@ -7,21 +7,17 @@ function CreateItemController(ItemService, $state){
       name: ctrl.name
     }
 
-    var redirectToIndex = function(){
-      $state.reload();
-    }
-
     ItemService
          .createItem(params)
          .then(function(response){
-           redirectToIndex();
+           $state.reload();
          })
   }
 
   this.redirectToIndex = function(){
     $state.href("items");
   }
-  //redirectToIndex();
+
 }
 
 CreateItemController.$inject = ['ItemService', '$state'];
