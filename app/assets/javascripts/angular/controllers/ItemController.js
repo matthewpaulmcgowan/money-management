@@ -1,4 +1,4 @@
-function ItemController(item, ItemService){
+function ItemController(item, ItemService, $state){
   var ctrl = this;
   ctrl.data=item.data;
 
@@ -10,12 +10,12 @@ function ItemController(item, ItemService){
     ItemService
          .updateItem(params, id)
          .then(function(response){
-           $state.reload();
+           $state.reload(id);
          })
   }
 }
 
-ItemController.$inject = ['item', 'ItemService'];
+ItemController.$inject = ['item', 'ItemService', '$state'];
 
 angular
       .module("app")
