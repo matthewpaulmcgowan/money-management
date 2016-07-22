@@ -1,7 +1,7 @@
-function HomeSignupController - function(UserService, $state){
+function HomeSignupController (UserService, $state){
   var ctrl = this;
 
-  ctrl.userSignup(){
+  ctrl.userSignup = function (){
     var params = {
       username: this.username,
       password: this.password
@@ -10,7 +10,7 @@ function HomeSignupController - function(UserService, $state){
     UserService
               .userSignup(params)
               .then(function(response){
-                  
+
               })
   }
 }
