@@ -19,7 +19,7 @@ angular
             .state("home.signup", {
               url: "/signup",
               templateUrl: "/templates/home/signup.html",
-              controller: "HomeSignupController"
+              controller: "HomeSignupController as user"
             })
             .state('items', {
               url: '/items',
