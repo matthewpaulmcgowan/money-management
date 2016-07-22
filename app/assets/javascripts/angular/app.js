@@ -11,6 +11,16 @@ angular
               templateUrl: '/templates/home/home.html',
               controller: "HomeController as home"
             })
+            .state("home.login", {
+              url: "/login",
+              templateUrl: "/templates/home/login.html",
+              controller: "HomeLoginController"
+            })
+            .state("home.signup", {
+              url: "/signup",
+              templateUrl: "/templates/home/signup.html",
+              controller: "HomeSignupController"
+            })
             .state('items', {
               url: '/items',
               templateUrl: '/templates/items/index.html',
