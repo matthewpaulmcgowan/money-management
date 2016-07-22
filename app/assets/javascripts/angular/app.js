@@ -14,7 +14,7 @@ angular
             .state("home.login", {
               url: "/login",
               templateUrl: "/templates/home/login.html",
-              controller: "HomeLoginController"
+              controller: "HomeLoginController as user"
             })
             .state("home.signup", {
               url: "/signup",
