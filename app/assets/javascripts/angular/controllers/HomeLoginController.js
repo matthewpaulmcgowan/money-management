@@ -1,4 +1,4 @@
-function HomeLoginController (UserService, $state){
+function HomeLoginController (UserService, $state, $window){
   var ctrl = this;
 
   ctrl.login = function(){
@@ -6,17 +6,22 @@ function HomeLoginController (UserService, $state){
       username: this.username,
       password: this.password
     }
-
+    debugger;
     UserService
          .userLogin(params)
          .then(function(response){
-            debugger;
-           //$state.reload();
+           if(response.data.id){
+             $state.go("items");
+           }
+           else{
+             $state.reload();
+             $window.alert("User Login Failed, Please Try Again")
+           }
          })
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state'];
+HomeLoginController.$inject = ['UserService', '$state', "$window"];
 
 angular
       .module('app')
