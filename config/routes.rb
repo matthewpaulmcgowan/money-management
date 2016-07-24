@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :items
   post '/login' => 'users#login'
   post '/signup' => 'users#signup'
+  get '/loggedIn' => 'users#loggedIn'
   #match '/posts' => 'items#options', :constraints => {:method => 'OPTIONS'}, via: [:options]
   #get '*path' => 'users#index'
   # You can have the root of your site routed with "root"
