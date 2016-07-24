@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
 
   def login
+    @user = User.find_by(username: params[:username])
     binding.pry
+    if @user.authenticate(params[:password])
+      render json: @user
+    else
+      render json: {}
+    end
   end
 
   def signup
@@ -14,7 +20,6 @@ class UsersController < ApplicationController
       @user.save
       render json: @user
     else
-      binding.pry
       render json: {}
     end
   end
