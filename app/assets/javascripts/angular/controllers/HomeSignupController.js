@@ -1,7 +1,7 @@
-function HomeSignupController (UserService, $state){
+function HomeSignupController (UserService, $state, $window){
   var ctrl = this;
 
-  ctrl.userSignup = function (){
+  ctrl.signup = function (){
     var params = {
       username: this.username,
       password: this.password
@@ -10,12 +10,18 @@ function HomeSignupController (UserService, $state){
     UserService
               .userSignup(params)
               .then(function(response){
-
+                if(response.data.id){
+                  $state.go("items");
+                }
+                else{
+                  $state.reload();
+                  $window.alert("User Creation Failed, Please Try Again")
+                }
               })
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state'];
+HomeLoginController.$inject = ['UserService', '$state', "$window"];
 
 angular
       .module("app")
