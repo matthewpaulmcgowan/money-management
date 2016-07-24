@@ -1,4 +1,4 @@
-function HomeSignupController (UserService, $state, $window){
+function HomeSignupController (UserService, $state, $window, CookiesService){
   var ctrl = this;
 
   ctrl.signup = function (){
@@ -11,6 +11,7 @@ function HomeSignupController (UserService, $state, $window){
               .userSignup(params)
               .then(function(response){
                 if(response.data.id){
+                  CookiesService.setCookie(response.data.id);
                   $state.go("items");
                 }
                 else{
@@ -21,7 +22,7 @@ function HomeSignupController (UserService, $state, $window){
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', "$window"];
+HomeLoginController.$inject = ['UserService', '$state', "$window", "CookiesService"];
 
 angular
       .module("app")
