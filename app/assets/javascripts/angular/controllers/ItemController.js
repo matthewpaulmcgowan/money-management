@@ -1,10 +1,9 @@
 function ItemController(item, ItemService, $state, CookiesService){
   var ctrl = this;
   ctrl.data=item.data;
-
   CookiesService.checkCookie();
 
-  this.editItem = function(id){
+  ctrl.editItem = function(id){
     var params = {
       name: ctrl.name
     }
