@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(name: params[:item][:name], user_id: params[:userId])
+    @item = Item.create(name: params[:item][:name],amount: params[:item][:amount],category: params[:item][:category], user_id: params[:userId])
     render json: {}
   end
 
