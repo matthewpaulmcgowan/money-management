@@ -62,6 +62,17 @@ angular
                       }
               }
             })
+            .state("largeAmountItems", {
+              url: '/items/large',
+              templateUrl: '/templates/items/large.html',
+              controller: "ItemsController as items",
+              resolve: {
+                      items: function(ItemService, CookiesService){
+                        var userId = {userId: CookiesService.getCookie()};
+                        return ItemService.getItems(userId);
+                      }
+              }
+            })
 
         $urlRouterProvider.otherwise("/home");
 
