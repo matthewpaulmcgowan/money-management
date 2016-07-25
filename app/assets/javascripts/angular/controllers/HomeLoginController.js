@@ -1,12 +1,16 @@
-function HomeLoginController (UserService, $state, $window){
+function HomeLoginController (UserService, $state, $window, CookiesService){
   var ctrl = this;
+
+  ctrl.signout = function(){
+    CookiesService.redirectIfSignedIn();
+  }
 
   ctrl.login = function(){
     var params = {
       username: this.username,
       password: this.password
     }
-    debugger;
+
     UserService
          .userLogin(params)
          .then(function(response){
@@ -22,7 +26,7 @@ function HomeLoginController (UserService, $state, $window){
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', "$window"];
+HomeLoginController.$inject = ['UserService', '$state', "$window", 'CookiesService'];
 
 angular
       .module('app')

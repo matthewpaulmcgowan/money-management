@@ -1,6 +1,10 @@
 function HomeSignupController (UserService, $state, $window, CookiesService){
   var ctrl = this;
 
+  ctrl.signout = function(){
+    CookiesService.redirectIfSignedIn()
+  }
+
   ctrl.signup = function (){
     var params = {
       username: this.username,
