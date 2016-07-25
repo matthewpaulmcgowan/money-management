@@ -1,6 +1,10 @@
 <form ng-submit="item.editItem(item.data.id)" name="form">
   <label for="name">Name</label>
   <input name="name" ng-model="item.name" />
+  <label for="category">Category</label>
+  <input name="category" ng-model="item.category" />
+  <label for="amount">Amount</label>
+  <input name="amount" ng-model="item.amount" />
   <input type="submit" id="submit" value="Submit" />
 </form>
 <h1>{{item.data.name}}</h1>
