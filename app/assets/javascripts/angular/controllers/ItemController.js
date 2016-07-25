@@ -1,6 +1,8 @@
-function ItemController(item, ItemService, $state){
+function ItemController(item, ItemService, $state, CookiesService){
   var ctrl = this;
   ctrl.data=item.data;
+
+  CookiesService.checkCookie();
 
   this.editItem = function(id){
     var params = {
@@ -13,9 +15,10 @@ function ItemController(item, ItemService, $state){
            $state.reload(id);
          })
   }
+
 }
 
-ItemController.$inject = ['item', 'ItemService', '$state'];
+ItemController.$inject = ['item', 'ItemService', '$state', 'CookiesService'];
 
 angular
       .module("app")

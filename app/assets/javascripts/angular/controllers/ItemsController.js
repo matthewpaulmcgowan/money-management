@@ -1,13 +1,7 @@
 function ItemsController(items, CookiesService, $window, $state){
   var ctrl = this;
 
-  ctrl.checkCookie = function(){
-    //debugger;
-    if(!CookiesService.getCookie()){
-      $state.go("home")
-      $window.alert("Not Logged In, Please Sign In or Create a New Profile")
-    }
-  }
+  CookiesService.checkCookie();
 
   ctrl.data = items.data;
   ctrl.checkCookie();
