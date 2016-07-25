@@ -4,9 +4,13 @@ function CreateItemController(ItemService, $state, CookiesService){
   CookiesService.checkCookie();
 
   ctrl.createItem = function(){
+    var userId = CookiesService.getCookie();
+
     var params = {
-      name: ctrl.name
+      name: ctrl.name,
+      userId: userId
     }
+  
     ItemService
          .createItem(params)
          .then(function(response){
