@@ -1,7 +1,7 @@
 var Item = {
     templateUrl: "/templates/items/item.html",
     bindings: {
-                id: '=', name: '='
+                id: '=', name: '=', category: '=', amount: '='
     },
     controllerAs: "item",
   }
