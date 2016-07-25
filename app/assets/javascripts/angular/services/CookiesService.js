@@ -1,4 +1,4 @@
-function CookiesService($cookies){
+function CookiesService($cookies, $state, $window){
 
   this.setCookie = function(id){
     $cookies.put("userId", id);
@@ -6,6 +6,13 @@ function CookiesService($cookies){
 
   this.getCookie = function(){
     return $cookies.get('userId');
+  }
+
+  this.checkCookie = function(){
+    if(!this.getCookie()){
+      $state.go("home")
+      $window.alert("Not Logged In, Please Sign In or Create a New Profile")
+    }
   }
 }
 
