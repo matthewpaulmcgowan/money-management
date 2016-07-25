@@ -20,6 +20,13 @@ function CookiesService($cookies, $state, $window){
       $window.alert("Not Logged In, Please Sign In or Create a New Profile")
     }
   }
+
+  this.redirectIfSignedIn = function(){
+    if(this.getCookie()){
+      $state.go('items')
+      $window.alert("Already Logged In")
+    }
+  }
 }
 
 
