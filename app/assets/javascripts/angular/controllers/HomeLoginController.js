@@ -11,6 +11,7 @@ function HomeLoginController (UserService, $state, $window){
          .userLogin(params)
          .then(function(response){
            if(response.data.id){
+             CookiesService.setCookie(response.data.id);
              $state.go("items");
            }
            else{
