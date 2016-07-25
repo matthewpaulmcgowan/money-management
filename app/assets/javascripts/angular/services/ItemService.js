@@ -1,6 +1,6 @@
 function ItemService($http){
-  this.getItems = function () {
-        return $http.get('http://localhost:3000/items');
+  this.getItems = function (params) {
+        return $http.post('http://localhost:3000/items/index', params);
     }
 
   this.createItem = function(params){
