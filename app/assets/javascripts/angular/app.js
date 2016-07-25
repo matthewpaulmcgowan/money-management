@@ -26,8 +26,10 @@ angular
               templateUrl: '/templates/items/index.html',
               controller: "ItemsController as items",
               resolve: {
-                      items: function(ItemService){
-                        return ItemService.getItems();
+                      items: function(ItemService, CookiesService){
+                        debugger;
+                        var userId = {userId: CookiesService.getCookie()};
+                        return ItemService.getItems(userId);
                       }
               }
             })
