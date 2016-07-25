@@ -8,9 +8,11 @@ function CreateItemController(ItemService, $state, CookiesService){
 
     var params = {
       name: ctrl.name,
+      category: ctrl.category,
+      amount: ctrl.amount,
       userId: userId
     }
-  
+  debugger;
     ItemService
          .createItem(params)
          .then(function(response){
