@@ -8,6 +8,10 @@
   <form ng-submit="c.createItem()" ng-controller="CreateItemController as c" name="form">
     <label for="name">Name</label>
     <input name="name" ng-model="c.name" />
+    <label for="name">Category</label>
+    <input name="name" ng-model="c.category" />
+    <label for="name">Amount</label>
+    <input name="name" ng-model="c.amount" />
     <input type="submit" id="submit" value="Submit" />
   </form>
 <a href="" ui-sref="searchItems()">Search</a>
