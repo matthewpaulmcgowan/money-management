@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(name: params[:item][:name])
+    @item.update(item_edit_params)
     render json: @item
   end
 
@@ -30,6 +30,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.delete
     render json: {}
+  end
+
+private
+
+  def item_edit_params
+    params.require(:item).permit(:name, :amount, :category)
   end
 
 end
