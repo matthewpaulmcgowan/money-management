@@ -2,12 +2,19 @@ function EditCheckService(){
   var ctrl = this;
 
   ctrl.checkIfChanged = function(attribute){
-    if(attribute.includes("ng-empty")){
+    var checked = false;
+    for(var i=0;i<attribute.length;i++){
+      if(attribute[i] === 'ng-empty'){
+        checked = true;
+      }
+    }
+    if(checked === true){
       return false;
     } else{
       return true;
     }
   }
+
 }
 
 angular
