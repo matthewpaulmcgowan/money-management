@@ -1,4 +1,5 @@
 function HomeController(CookiesService){
+  var ctrl = this;
   this.person = "Matt";
 
   ctrl.signout = function(){
