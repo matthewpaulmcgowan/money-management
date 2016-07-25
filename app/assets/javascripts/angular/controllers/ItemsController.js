@@ -4,7 +4,6 @@ function ItemsController(items, CookiesService, $window, $state){
   CookiesService.checkCookie();
 
   ctrl.data = items.data;
-  ctrl.checkCookie();
 }
 
 ItemsController.$inject = ['items', 'CookiesService', '$window', '$state'];
