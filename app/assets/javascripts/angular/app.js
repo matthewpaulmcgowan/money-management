@@ -27,7 +27,6 @@ angular
               controller: "ItemsController as items",
               resolve: {
                       items: function(ItemService, CookiesService){
-                        debugger;
                         var userId = {userId: CookiesService.getCookie()};
                         return ItemService.getItems(userId);
                       }
