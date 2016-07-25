@@ -8,6 +8,12 @@ function CookiesService($cookies, $state, $window){
     return $cookies.get('userId');
   }
 
+  this.signout = function(){
+    $cookies.remove("userId");
+    $window.alert("Sucessfully Signed Out")
+    $state.go("home")
+  }
+
   this.checkCookie = function(){
     if(!this.getCookie()){
       $state.go("home")
