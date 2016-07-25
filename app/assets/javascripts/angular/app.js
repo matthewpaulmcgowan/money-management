@@ -56,8 +56,9 @@ angular
               templateUrl: '/templates/items/search.html',
               controller: "ItemsController as items",
               resolve: {
-                      items: function(ItemService){
-                        return ItemService.getItems();
+                      items: function(ItemService, CookiesService){
+                        var userId = {userId: CookiesService.getCookie()};
+                        return ItemService.getItems(userId);
                       }
               }
             })
