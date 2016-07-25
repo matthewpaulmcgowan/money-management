@@ -1,19 +1,19 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @user = User.find(params[:userId])
+    @items = @user.items.all
     render json: @items
   end
 
   def create
-    @item = Item.create(name: params[:item][:name])
-    @items = Item.all
+    @item = Item.create(name: params[:item][:name], user_id: params[:userId])
     render json: {}
   end
 
-  def options
-    binding.pry
-  end
+  #def options
+  #  binding.pry
+  #end
 
   def show
     @item = Item.find(params[:id].to_i)
