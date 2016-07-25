@@ -1,12 +1,12 @@
-function CreateItemController(ItemService, $state){
+function CreateItemController(ItemService, $state, CookiesService){
   var ctrl = this;
 
-  ctrl.createItem = function(){
+  CookiesService.checkCookie();
 
+  ctrl.createItem = function(){
     var params = {
       name: ctrl.name
     }
-
     ItemService
          .createItem(params)
          .then(function(response){
@@ -14,13 +14,12 @@ function CreateItemController(ItemService, $state){
          })
   }
 
-  this.redirectToIndex = function(){
-    $state.href("items");
-  }
-
+  //this.redirectToIndex = function(){
+  //  $state.href("items");
+  //}
 }
 
-CreateItemController.$inject = ['ItemService', '$state'];
+CreateItemController.$inject = ['ItemService', '$state', 'CookiesService'];
 
 
 
