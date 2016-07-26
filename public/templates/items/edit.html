@@ -1,3 +1,4 @@
+<h1>Edit your Discretionary Income Item</h1>
 <form ng-submit="item.editItem(item.data.id)" name="form">
   <label for="name">Name</label>
   <input name="name" ng-model="item.name" />
@@ -7,8 +8,7 @@
   <input name="amount" type="number" ng-model="item.amount" />
   <input type="submit" id="submit" value="Submit" />
 </form>
-<h1>{{item.data.name}}</h1>
-<h1>{{item.data.category}}</h1>
-<h1>{{item.data.amount}}</h1>
-<p>hello</p>
-<a href="" ui-sref="items()">Index</a>
+<h1>Name: {{item.data.name}}</h1>
+<h1>Category: {{item.data.category}}</h1>
+<h1>Amount: {{item.data.amount}}</h1>
+<h1><a href="" ui-sref="items()">Index</a></h1>

@@ -1,7 +1,9 @@
+<h1>Search Page</h1>
 <label>Search: <input ng-model="searchText"></label>
 <table>
-<tr><th>Name</th><th>Phone</th></tr>
+<tr><th>Name</th><th>Category</th><th>Amount</th></tr>
 <tr ng-repeat="item in items.data | filter:searchText">
-  <td>{{item.name}}</td>
+  <td>{{item.name}}</td><td>{{item.category}}</td><td>{{item.amount | currency}}</td>
 </tr>
 </table>
+<h1><a href="" ui-sref="items()">Index</a></h1>

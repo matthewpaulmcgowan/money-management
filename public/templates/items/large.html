@@ -1,6 +1,8 @@
+<h1>Items Over $100</h1>
 <table>
-<tr><th>Name</th><th>Amount</th></tr>
+<tr><th>Name</th><th>Category</th><th>Amount</th></tr>
 <tr ng-repeat="item in items.data | largeAmount">
-  <td>{{item.name}}</td>
+  <td>{{item.name}}</td><td>{{item.category}}</td><td>{{item.amount | currency}}</td>
 </tr>
 </table>
+<h1><a href="" ui-sref="items()">Index</a></h1>
