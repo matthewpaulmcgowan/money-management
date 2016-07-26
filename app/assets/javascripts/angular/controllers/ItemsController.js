@@ -3,6 +3,11 @@ function ItemsController(items, CookiesService, $window, $state){
 
   CookiesService.checkCookie();
 
+  ctrl.signout = function(){
+    debugger;
+    CookiesService.signout();
+  }
+
   ctrl.data = items.data;
 }
 
