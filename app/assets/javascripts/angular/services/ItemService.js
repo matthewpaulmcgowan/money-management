@@ -1,5 +1,8 @@
 function ItemService($http){
   this.getItems = function (params) {
+        if(params['userId'] === undefined){
+          params['userId']='1'
+        }
         return $http.post('http://localhost:3000/items/index', params);
     }
 

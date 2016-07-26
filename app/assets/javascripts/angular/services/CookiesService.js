@@ -14,7 +14,7 @@ function CookiesService($cookies, $state, $window){
     $state.go("home")
   }
 
-  this.checkCookie = function(){
+  this.checkCookie = function($event){
     if(!this.getCookie()){
       $state.go("home")
       $window.alert("Not Logged In, Please Sign In or Create a New Profile")
