@@ -2,9 +2,7 @@ function HomeController(CookiesService){
   var ctrl = this;
   this.person = "Matt";
 
-  ctrl.signout = function(){
-    CookiesService.redirectIfSignedIn();
-  }
+  CookiesService.redirectIfSignedIn();
 }
 
 HomeController.$inject = ["CookiesService"];
