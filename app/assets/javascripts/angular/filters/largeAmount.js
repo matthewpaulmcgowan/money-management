@@ -1,8 +1,9 @@
 function largeAmount(){
 
   return function (items) {
+    debugger;
         return items.filter(function (item) {
-            return item.amount.to_i < 99;
+            return item.amount > 99;
         });
     };
 
