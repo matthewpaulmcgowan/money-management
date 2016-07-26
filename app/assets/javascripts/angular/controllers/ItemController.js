@@ -18,8 +18,6 @@ function ItemController(item, ItemService, $state, CookiesService, EditCheckServ
       params['category'] = ctrl.category;
     }
 
-    debugger;
-
     ItemService
          .updateItem(params, id)
          .then(function(response){
