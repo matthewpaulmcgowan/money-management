@@ -1,10 +1,10 @@
 var Item = {
-    templateUrl: "/templates/items/item.html",
-    bindings: {
-                id: '=', name: '=', category: '=', amount: '='
-    },
-    controllerAs: "item",
-  }
+  templateUrl: "/templates/items/item.html",
+  bindings: {
+    id: '=', name: '=', category: '=', amount: '='
+  },
+  controllerAs: "item",
+}
 
 angular
       .module("app")

@@ -12,17 +12,17 @@ function HomeLoginController (UserService, $state, $window, CookiesService){
     }
 
     UserService
-         .userLogin(params)
-         .then(function(response){
-           if(response.data.id){
-             CookiesService.setCookie(response.data.id);
-             $state.go("items");
-           }
-           else{
-             $state.reload();
-             $window.alert("User Login Failed, Please Try Again")
-           }
-         })
+      .userLogin(params)
+      .then(function(response){
+        if(response.data.id){
+          CookiesService.setCookie(response.data.id);
+          $state.go("items");
+        }
+        else{
+          $state.reload();
+          $window.alert("User Login Failed, Please Try Again")
+        }
+      })
   }
 }
 

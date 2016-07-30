@@ -29,8 +29,6 @@ function CookiesService($cookies, $state, $window){
   }
 }
 
-
-
 angular
       .module("app")
       .service("CookiesService", CookiesService);

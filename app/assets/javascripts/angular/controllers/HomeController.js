@@ -1,7 +1,5 @@
 function HomeController(CookiesService){
   var ctrl = this;
-  this.person = "Matt";
-
   CookiesService.redirectIfSignedIn();
 }
 

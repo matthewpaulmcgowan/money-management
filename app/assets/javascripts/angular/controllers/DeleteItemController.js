@@ -1,11 +1,10 @@
 function DeleteItemController($state, CookiesService){
-    var ctrl = this;
-    debugger;
-    $state.go("items");
+  var ctrl = this;
+  $state.go("items");
 }
 
 DeleteItemController.$inject = ['$state', 'CookiesService'];
 
 angular
-        .module('app')
-        .controller("DeleteItemController", DeleteItemController);
+      .module('app')
+      .controller("DeleteItemController", DeleteItemController);

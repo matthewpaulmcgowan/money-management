@@ -14,7 +14,6 @@ function EditCheckService(){
       return true;
     }
   }
-
 }
 
 angular

@@ -12,17 +12,17 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
     }
 
     UserService
-              .userSignup(params)
-              .then(function(response){
-                if(response.data.id){
-                  CookiesService.setCookie(response.data.id);
-                  $state.go("items");
-                }
-                else{
-                  $state.reload();
-                  $window.alert("User Creation Failed, Please Try Again")
-                }
-              })
+      .userSignup(params)
+      .then(function(response){
+        if(response.data.id){
+          CookiesService.setCookie(response.data.id);
+          $state.go("items");
+        }
+        else{
+          $state.reload();
+          $window.alert("User Creation Failed, Please Try Again")
+        }
+      })
   }
 }
 

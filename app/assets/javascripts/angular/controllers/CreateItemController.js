@@ -12,22 +12,15 @@ function CreateItemController(ItemService, $state, CookiesService){
       amount: ctrl.amount,
       userId: userId
     }
-  debugger;
     ItemService
-         .createItem(params)
-         .then(function(response){
-           $state.reload();
-         })
+      .createItem(params)
+      .then(function(response){
+        $state.reload();
+      })
   }
-
-  //this.redirectToIndex = function(){
-  //  $state.href("items");
-  //}
 }
 
 CreateItemController.$inject = ['ItemService', '$state', 'CookiesService'];
-
-
 
 angular
       .module("app")

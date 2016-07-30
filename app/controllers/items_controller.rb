@@ -11,10 +11,6 @@ class ItemsController < ApplicationController
     render json: {}
   end
 
-  #def options
-  #  binding.pry
-  #end
-
   def show
     @item = Item.find(params[:id].to_i)
     render json: @item
