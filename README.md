@@ -1,4 +1,4 @@
-#Money Management
+##Money Management
 
 The Money Management app is designed as an easy way to keep track of discretionary income. The user can create, edit, and delete expense items. This list is easily searchable and also
 has an option to only view expense items over $100.
@@ -7,7 +7,7 @@ has an option to only view expense items over $100.
 ##Installation
 
 Clone this repo to your desktop and run `bundle install` to install all dependencies. Run `rake db:migrate` to initialize your database. Start the rails server by
-running `rails s`. 
+running `rails s`.
 
 
 ##Contributor's Guide
