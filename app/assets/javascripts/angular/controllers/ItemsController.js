@@ -1,4 +1,4 @@
-function ItemsController(items, CookiesService, $window, $state){
+function ItemsController(items, CookiesService, $window, $state, $filter){
   var ctrl = this;
 
   CookiesService.checkCookie();
@@ -8,9 +8,11 @@ function ItemsController(items, CookiesService, $window, $state){
   }
 
   ctrl.data = items.data;
+
+  ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 }
 
-ItemsController.$inject = ['items', 'CookiesService', '$window', '$state'];
+ItemsController.$inject = ['items', 'CookiesService', '$window', '$state', '$filter'];
 
 angular
         .module("app")
