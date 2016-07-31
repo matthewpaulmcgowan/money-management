@@ -1,0 +1,11 @@
+.app {
+  text-align: center;
+/*background-color: #d8da3d*/ }
+
+.item {
+  display:inline;
+}
+
+#heading {
+  font-weight: bold;
+}
