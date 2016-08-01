@@ -4,23 +4,23 @@
     <li><item id="item" name="item.name" amount="item.amount" category="item.category"></item></li>
   </ul>
 </div>
-  <form ng-submit="c.createItem()" ng-controller="CreateItemController as c" name="form">
+  <form ng-submit="items.createItem()" name="form">
     <label for="name">Name</label>
-    <input name="name" required="required" ng-model="c.name" />
+    <input name="name" required="required" ng-model="items.name" />
 
     <div ng-messages="form.name.$error" ng-if="form.name.$touched">
           <div ng-message="required">Name is required!</div>
     </div>
 
     <label for="category">Category</label>
-    <input name="category" required="required" ng-model="c.category" />
+    <input name="category" required="required" ng-model="items.category" />
 
     <div ng-messages="form.category.$error" ng-if="form.category.$touched">
           <div ng-message="required">Category is required!</div>
     </div>
 
     <label for="amount">Amount</label>
-    <input type='number' name="amount" required="required" ng-model="c.amount" />
+    <input type='number' name="amount" required="required" ng-model="items.amount" />
 
     <div ng-messages="form.amount.$error" ng-if="form.amount.$touched">
           <div ng-message="required">Amount is required!</div>
