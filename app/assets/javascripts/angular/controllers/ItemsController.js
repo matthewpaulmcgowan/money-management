@@ -11,7 +11,6 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
 
   ctrl.createItem = function(){
     var userId = CookiesService.getCookie();
-debugger;
     var params = {
       name: ctrl.name,
       category: ctrl.category,
@@ -22,16 +21,15 @@ debugger;
     ItemService
       .createItem(params)
       .then(function (response) {
-        ctrl.addResponse(response);
-          debugger;
-        //response {name: ""}
-        // ctrl.items.data.push(response)
+        ctrl.data.push(response.data)
+        ctrl.resetForm();
       })
-      debugger;
   }
 
-  ctrl.addResponse = function (response){
-    debugger;
+  ctrl.resetForm = function (){
+    ctrl.name = null;
+    ctrl.category = null;
+    ctrl.amount = null;
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
