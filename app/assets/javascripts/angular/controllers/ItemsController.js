@@ -7,10 +7,6 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
     CookiesService.signout();
   }
 
-  ctrl.deleteItemWatch = function(id){
-    debugger;
-  }
-
   ctrl.data = items.data;
 
   ctrl.createItem = function(){

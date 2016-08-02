@@ -2,5 +2,4 @@
 <p class="item">Category: {{item.category}}</p>
 <p class="item">Amount: {{item.amount | currency}}</p>
 <p class="item"><a href="" ui-sref="editItem({id: item.id.id})">Update</a></p>
-<p class="item"><a href="" ui-sref="deleteItem({id: item.id.id})">Delete</a></p>
 <p class="item"><button ng-click="item.delete(item.id.id)">Delete</button></p>
