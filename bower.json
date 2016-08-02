@@ -1,0 +1,22 @@
+{
+  "name": "money_management",
+  "homepage": "https://github.com/matthewpaulmcgowan/money-management",
+  "authors": [
+    "matthewpaulmcgowan <matthewpaulmcgowan@gmail.com>"
+  ],
+  "description": "App to Keep Track of Discretionary Income",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-token-auth": "^0.0.29"
+  }
+}

@@ -1,5 +1,5 @@
 angular
-      .module("app", ['ui.router', 'ngCookies', 'ngMessages'])
+      .module("app", ['ui.router', 'ngCookies', 'ngMessages', 'ng-token-auth'])
       .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
         token = $("meta[name=\"csrf-token\"]").attr("content")
