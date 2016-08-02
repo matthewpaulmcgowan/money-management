@@ -1,28 +1,31 @@
-var Item = {
+function Item()  {
+  return {
   templateUrl: "/templates/items/item.html",
-  bindings: {
-    id: '=', name: '=', category: '=', amount: '=', index: "=", deleteItem: "&"
+  scope: {
+
   },
   controllerAs: "item",
+  bindToController: {
+          id: '=', name: '=', category: '=', amount: '=', index: "=", items: "="
+       },
   controller:
     function (ItemService, $scope) {
       var ctrl = this;
 
-      ctrl.delete = function (identifier) {
-        debugger;
-        ctrl.deleteItem({id: identifier});
-        debugger;
-        //ItemService
-        //  .deleteItem(id)
-        //  .then(function (response){
-
-        //  })
+      ctrl.delete = function (id) {
+        //ctrl.items.splice(ctrl.index,1);
+        ItemService
+          .deleteItem(id)
+          .then(function (response){
+            ctrl.items.splice(ctrl.index,1);
+          })
         };
       }
+    }
 }
 
 //Item.$inject = ['ItemsController'];
 
 angular
       .module("app")
-      .component("item", Item)
+      .directive("item", Item)
