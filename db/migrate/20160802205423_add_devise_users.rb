@@ -1,9 +1,5 @@
-class DeviseTokenAuthCreateUsers < ActiveRecord::Migration
-  def up
-    drop_table :users
-  end
-
-  def down
+class AddDeviseUsers < ActiveRecord::Migration
+  def change
     create_table(:users) do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
