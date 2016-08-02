@@ -22,8 +22,21 @@ function ItemController(item, ItemService, $state, CookiesService, EditCheckServ
     ItemService
       .updateItem(params, id)
       .then(function(response){
-        $state.reload(id);
+        ctrl.updateTemplate(response);
+        ctrl.clearForm();
       })
+  }
+
+  ctrl.updateTemplate = function(response){
+    ctrl.data.amount = response.data.amount;
+    ctrl.data.name = response.data.name;
+    ctrl.data.category = response.data.category;
+  }
+
+  ctrl.clearForm = function(){
+    ctrl.amount = null;
+    ctrl.name = null;
+    ctrl.category = null;
   }
 }
 

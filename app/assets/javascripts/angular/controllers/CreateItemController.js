@@ -15,7 +15,9 @@ function CreateItemController(ItemService, $state, CookiesService){
     ItemService
       .createItem(params)
       .then(function(response){
-        $state.reload();
+        debugger;
+        //response {name: ""}
+        // ctrl.items.data.push(response)
       })
   }
 }
