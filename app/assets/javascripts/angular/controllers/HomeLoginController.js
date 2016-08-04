@@ -7,10 +7,10 @@ function HomeLoginController (UserService, $state, $window, CookiesService){
 
   ctrl.login = function(){
     var params = {
-      username: this.username,
+      email: this.email,
       password: this.password
     }
-
+    debugger;
     UserService
       .userLogin(params)
       .then(function(response){

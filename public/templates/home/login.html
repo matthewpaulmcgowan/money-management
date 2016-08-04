@@ -1,24 +1,17 @@
 <h2>login</h2>
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email"
-           name="email"
-           id="email"
-           ng-model="loginForm.email"
-           required="required"
-           class="form-control">
+<form ng-submit="user.login()" name="form">
+  <label for="email">Email</label>
+  <input name="email" ng-model="user.email" required="required" type="email"/>
+
+  <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+        <div ng-message="required">Email is required!</div>
   </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password"
-           name="password"
-           id="password"
-           ng-model="loginForm.password"
-           required="required"
-           class="form-control">
+  <label for="password">Password</label>
+  <input name="password" ng-model="user.password" type="password" required="required"/>
+
+  <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+        <div ng-message="required">Password is required!</div>
   </div>
 
-  <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
-</form>
+  <input type="submit" id="submit" value="Submit" />
