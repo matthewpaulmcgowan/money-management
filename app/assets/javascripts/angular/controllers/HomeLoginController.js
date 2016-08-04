@@ -27,10 +27,7 @@ function HomeLoginController (UserService, $state, $window, CookiesService, $aut
     UserService
       .userLogin(params)
       .then(function(response){
-        debugger;
-        //if(response.data.id){
-        //  CookiesService.setCookie(response.data.id);
-        //  $state.go("items");}
+        $state.go("items");
       })
       .catch(function(response){
         debugger;
