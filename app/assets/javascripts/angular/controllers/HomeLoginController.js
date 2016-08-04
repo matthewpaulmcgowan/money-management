@@ -27,14 +27,13 @@ function HomeLoginController (UserService, $state, $window, CookiesService, $aut
     UserService
       .userLogin(params)
       .then(function(response){
-        if(response.data.id){
-          CookiesService.setCookie(response.data.id);
-          $state.go("items");
-        }
-        else{
-          $state.reload();
-          $window.alert("User Login Failed, Please Try Again")
-        }
+        debugger;
+        //if(response.data.id){
+        //  CookiesService.setCookie(response.data.id);
+        //  $state.go("items");}
+      })
+      .catch(function(response){
+        debugger;
       })
   }
 }

@@ -1,6 +1,7 @@
 function UserService($http, $auth){
   this.userLogin = function (params) {
-  return $auth.submitLogin(params)
+    debugger;
+    return $auth.submitLogin(params)
         //.then(function(resp) {
         //  debugger;
         //  // handle success response
