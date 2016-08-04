@@ -1,10 +1,10 @@
 <h2>Signup</h2>
 <form ng-submit="user.signup()" name="form">
-  <label for="username">Username</label>
-  <input name="username" ng-model="user.username" required="required"/>
+  <label for="email">Email</label>
+  <input name="email" ng-model="user.email" required="required"/>
 
-  <div ng-messages="form.username.$error" ng-if="form.username.$touched">
-        <div ng-message="required">Username is required!</div>
+  <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+        <div ng-message="required">Email is required!</div>
   </div>
 
   <label for="password">Password</label>
