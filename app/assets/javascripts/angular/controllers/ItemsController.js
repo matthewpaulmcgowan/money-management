@@ -1,10 +1,12 @@
-function ItemsController(items, CookiesService, $window, $state, $filter, ItemService){
+function ItemsController(items, CookiesService, $window, $state, $filter, ItemService, UserService){
   var ctrl = this;
 
-  CookiesService.checkCookie();
-
-  ctrl.signout = function(){
-    CookiesService.signout();
+  ctrl.signOut = function(){
+    UserService
+      .signOut()
+      .then(function(response){
+        $state.go("home");
+      })
   }
 
   ctrl.data = items.data;
@@ -35,7 +37,7 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 }
 
-ItemsController.$inject = ['items', 'CookiesService', '$window', '$state', '$filter', "ItemService"];
+ItemsController.$inject = ['items', 'CookiesService', '$window', '$state', '$filter', 'ItemService', 'UserService'];
 
 angular
         .module("app")

@@ -2,19 +2,14 @@ function UserService($http, $auth){
   this.userLogin = function (params) {
     debugger;
     return $auth.submitLogin(params)
-        //.then(function(resp) {
-        //  debugger;
-        //  // handle success response
-        //})
-        //.catch(function(resp) {
-        //  debugger
-        //  // handle error response
-        //});
-    //return $http.post('http://localhost:3000/login', params);
   }
 
   this.userSignup = function (params) {
     return $http.post("http://localhost:3000/signup", params)
+  }
+
+  this.signOut = function () {
+    return $auth.signOut();
   }
 }
 
