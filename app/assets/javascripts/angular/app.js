@@ -30,6 +30,10 @@ angular
             templateUrl: '/templates/items/index.html',
             controller: "ItemsController as items",
             resolve: {
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
               items: function(ItemService, CookiesService){
                 var userId = {userId: CookiesService.getCookie()};
                 return ItemService.getItems(userId);
@@ -41,6 +45,10 @@ angular
             templateUrl: '/templates/items/edit.html',
             controller: "ItemController as item",
             resolve: {
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
               item: function(ItemService, $stateParams){
                 return ItemService.getItem($stateParams.id)
               }
@@ -60,6 +68,10 @@ angular
             templateUrl: '/templates/items/search.html',
             controller: "ItemsController as items",
             resolve: {
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
               items: function(ItemService, CookiesService){
                 var userId = {userId: CookiesService.getCookie()};
                 return ItemService.getItems(userId);
@@ -71,6 +83,10 @@ angular
             templateUrl: '/templates/items/large.html',
             controller: "ItemsController as items",
             resolve: {
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+              
               items: function(ItemService, CookiesService){
                 var userId = {userId: CookiesService.getCookie()};
                 return ItemService.getItems(userId);
