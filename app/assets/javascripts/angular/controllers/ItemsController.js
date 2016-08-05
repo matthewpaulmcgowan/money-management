@@ -12,12 +12,11 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
   ctrl.data = items.data;
 
   ctrl.createItem = function(){
-    var userId = CookiesService.getCookie();
+
     var params = {
       name: ctrl.name,
       category: ctrl.category,
-      amount: ctrl.amount,
-      userId: userId
+      amount: ctrl.amount
     }
 
     ItemService
@@ -32,6 +31,8 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
     ctrl.name = null;
     ctrl.category = null;
     ctrl.amount = null;
+    items.form.$setPristine();
+    debugger;
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
