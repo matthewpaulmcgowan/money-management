@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(name: params[:item][:name],amount: params[:item][:amount],category: params[:item][:category], user_id: params[:userId])
+    @user = current_user
+    @item = @user.items.create(item_params)
     render json: @item
   end
 
@@ -18,7 +19,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_edit_params)
+    @item.update(item_params)
     render json: @item
   end
 
@@ -28,9 +29,14 @@ class ItemsController < ApplicationController
     render json: {}
   end
 
+  def edit
+    binding.pry
+  end
+
+
 private
 
-  def item_edit_params
+  def item_params
     params.require(:item).permit(:name, :amount, :category)
   end
 
