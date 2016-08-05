@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    binding.pry
-    @user = User.find(params[:userId])
+    @user = current_user
     @items = @user.items.all
     render json: @items
   end

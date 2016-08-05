@@ -71,9 +71,8 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })
@@ -86,9 +85,8 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })
