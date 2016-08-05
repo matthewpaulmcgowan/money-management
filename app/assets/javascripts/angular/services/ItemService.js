@@ -4,11 +4,11 @@ function ItemService($http){
   }
 
   this.createItem = function(params){
-    return $http.post("http://localhost:3000/items", params);
+    return $http.post("http://localhost:3000/api/items", params);
   }
 
-  this.getItem = function(id){
-    return $http.get("http://localhost:3000/items/" + id)
+  this.editItem = function(id){
+    return $http.get("http://localhost:3000/api/items/" + id + "/edit")
   }
 
   this.updateItem = function(params, id){

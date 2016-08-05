@@ -49,7 +49,7 @@ angular
               },
 
               item: function(ItemService, $stateParams){
-                return ItemService.getItem($stateParams.id)
+                return ItemService.editItem($stateParams.id)
               }
             }
           })

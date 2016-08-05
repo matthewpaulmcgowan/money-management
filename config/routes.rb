@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   scope '/api' do
     mount_devise_token_auth_for 'User', at: '/auth'
-    resources :items, only: [:show, :create, :update, :destroy, :index]
+    resources :items, only: [:show, :create, :update, :destroy, :index, :edit]
   end
 
 
