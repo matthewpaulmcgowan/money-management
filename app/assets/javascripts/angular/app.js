@@ -2,8 +2,8 @@ angular
       .module("app", ['ui.router', 'ngCookies', 'ngMessages', 'ng-token-auth'])
       .config(function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider){
 
-        token = $("meta[name=\"csrf-token\"]").attr("content")
-        $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+        //token = $("meta[name=\"csrf-token\"]").attr("content")
+        //$httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
 
         $authProvider.configure({
           apiUrl:                  'http://localhost:3000/api'
@@ -34,9 +34,8 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })
@@ -86,7 +85,7 @@ angular
               auth: function($auth) {
                 return $auth.validateUser();
               },
-              
+
               items: function(ItemService, CookiesService){
                 var userId = {userId: CookiesService.getCookie()};
                 return ItemService.getItems(userId);

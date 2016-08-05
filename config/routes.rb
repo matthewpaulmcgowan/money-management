@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   scope '/api' do
     mount_devise_token_auth_for 'User', at: '/auth'
-    #resources :groups, except: [:new, :edit]
+    resources :items, only: [:show, :create, :update, :destroy, :index]
   end
 
 
-  resources :items, only: [:show, :create, :update, :destroy]
-  post '/items/index' => 'items#index'
+
+  #post '/items/index' => 'items#index'
   post '/login' => 'users#login'
   post '/signup' => 'users#signup'
   get '/loggedIn' => 'users#loggedIn'
