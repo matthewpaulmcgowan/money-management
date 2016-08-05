@@ -8,13 +8,14 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
   ctrl.signup = function (){
     var params = {
       email: this.email,
-      password: this.password
+      password: this.password,
       password_confirmation: this.password_confirmation
     }
 
     UserService
       .userSignup(params)
       .then(function(response){
+        debugger;
         $state.go("items");
       })
       .catch(function(response){
