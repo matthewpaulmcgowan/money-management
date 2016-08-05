@@ -1,5 +1,6 @@
 function HomeLoginController (UserService, $state, $window, CookiesService, $auth){
   var ctrl = this;
+  ctrl.login_error = '';
 
   ctrl.signout = function(){
     CookiesService.redirectIfSignedIn();
@@ -8,21 +9,9 @@ function HomeLoginController (UserService, $state, $window, CookiesService, $aut
   ctrl.login = function(){
 
     var params = {
-      email: this.email,
-      password: this.password
+      email: ctrl.email,
+      password: ctrl.password
     }
-
-    debugger;
-  //  $auth.submitLogin(params)
-  //      .then(function(resp) {
-  //        debugger;
-  //        // handle success response
-  //      })
-  //      .catch(function(resp) {
-  //        debugger
-  //        // handle error response
-  //      });
-
 
     UserService
       .userLogin(params)
@@ -31,6 +20,7 @@ function HomeLoginController (UserService, $state, $window, CookiesService, $aut
       })
       .catch(function(response){
         debugger;
+        ctrl.login_error = response['errors'][0]
       })
   }
 }
