@@ -1,5 +1,6 @@
 function HomeSignupController (UserService, $state, $window, CookiesService){
   var ctrl = this;
+  ctrl.registration_error = "";
 
   ctrl.signout = function(){
     CookiesService.redirectIfSignedIn()
@@ -7,19 +8,18 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
 
   ctrl.signup = function (){
     var params = {
-      email: this.email,
-      password: this.password,
-      password_confirmation: this.password_confirmation
+      email: ctrl.email,
+      password: ctrl.password,
+      password_confirmation: ctrl.password_confirmation
     }
 
     UserService
       .userSignup(params)
       .then(function(response){
-        debugger;
         $state.go("items");
       })
       .catch(function(response){
-        debugger;
+        ctrl.registration_error = response["data"]['errors']['full_messages'][0]
       })
   }
 }

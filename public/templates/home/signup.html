@@ -21,5 +21,10 @@
         <div ng-message="required">Password is required!</div>
   </div>
 
+  <div ng-show='user.registration_error'>
+    {{user.registration_error}}
+    <h2>hi</h2>
+  </div>
+
   <input type="submit" id="submit" value="Submit" />
 </form>
