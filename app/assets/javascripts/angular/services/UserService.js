@@ -5,7 +5,7 @@ function UserService($http, $auth){
   }
 
   this.userSignup = function (params) {
-    return $http.post("http://localhost:3000/signup", params)
+    return $auth.submitRegistration(params)
   }
 
   this.signOut = function () {

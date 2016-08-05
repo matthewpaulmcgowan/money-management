@@ -9,6 +9,7 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
     var params = {
       email: this.email,
       password: this.password
+      password_confirmation: this.password_confirmation
     }
 
     UserService

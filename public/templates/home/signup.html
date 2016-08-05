@@ -14,5 +14,12 @@
         <div ng-message="required">Password is required!</div>
   </div>
 
+  <label for="password_confirmation">Password Confirmation</label>
+  <input name="password_confirmation" ng-model="user.password_confirmation" type="password" required="required"/>
+
+  <div ng-messages="form.password_confirmation.$error" ng-if="form.password_confirmation.$touched">
+        <div ng-message="required">Password is required!</div>
+  </div>
+
   <input type="submit" id="submit" value="Submit" />
 </form>
