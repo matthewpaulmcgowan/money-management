@@ -1,28 +1,31 @@
-function ItemsController(items, CookiesService, $window, $state, $filter, ItemService){
+function ItemsController(items, $state, $filter, ItemService, UserService){
   var ctrl = this;
 
-  CookiesService.checkCookie();
-
-  ctrl.signout = function(){
-    CookiesService.signout();
+  ctrl.signOut = function(){
+    UserService
+      .signOut()
+      .then(function(response){
+        $state.go("home");
+      })
   }
 
   ctrl.data = items.data;
 
-  ctrl.createItem = function(){
-    var userId = CookiesService.getCookie();
+  ctrl.createItem = function(form){
+
+    ctrl.form = form;
+
     var params = {
       name: ctrl.name,
       category: ctrl.category,
-      amount: ctrl.amount,
-      userId: userId
+      amount: ctrl.amount
     }
 
     ItemService
       .createItem(params)
       .then(function (response) {
         ctrl.data.push(response.data)
-        ctrl.resetForm();
+        ctrl.resetForm(form);
       })
   }
 
@@ -30,12 +33,15 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
     ctrl.name = null;
     ctrl.category = null;
     ctrl.amount = null;
+    ctrl.form.$setPristine();
+    ctrl.form.$setUntouched();
+    debugger;
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 }
 
-ItemsController.$inject = ['items', 'CookiesService', '$window', '$state', '$filter', "ItemService"];
+ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService'];
 
 angular
         .module("app")

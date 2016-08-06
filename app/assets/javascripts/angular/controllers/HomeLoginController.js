@@ -1,32 +1,31 @@
-function HomeLoginController (UserService, $state, $window, CookiesService){
+function HomeLoginController (UserService, $state, $auth){
   var ctrl = this;
+  ctrl.login_error = '';
 
   ctrl.signout = function(){
     CookiesService.redirectIfSignedIn();
   }
 
   ctrl.login = function(){
+
     var params = {
-      username: this.username,
-      password: this.password
+      email: ctrl.email,
+      password: ctrl.password
     }
 
     UserService
       .userLogin(params)
       .then(function(response){
-        if(response.data.id){
-          CookiesService.setCookie(response.data.id);
-          $state.go("items");
-        }
-        else{
-          $state.reload();
-          $window.alert("User Login Failed, Please Try Again")
-        }
+        $state.go("items");
+      })
+      .catch(function(response){
+        debugger;
+        ctrl.login_error = response['errors'][0]
       })
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', "$window", 'CookiesService'];
+HomeLoginController.$inject = ['UserService', '$state', '$auth'];
 
 angular
       .module('app')

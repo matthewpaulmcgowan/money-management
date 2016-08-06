@@ -1,25 +1,22 @@
 function ItemService($http){
   this.getItems = function (params) {
-    if(params['userId'] === undefined){
-      params['userId']='1'
-    }
-    return $http.post('http://localhost:3000/items/index', params);
+    return $http.get('http://localhost:3000/api/items');
   }
 
   this.createItem = function(params){
-    return $http.post("http://localhost:3000/items", params);
+    return $http.post("http://localhost:3000/api/items", params);
   }
 
-  this.getItem = function(id){
-    return $http.get("http://localhost:3000/items/" + id)
+  this.editItem = function(id){
+    return $http.get("http://localhost:3000/api/items/" + id + "/edit")
   }
 
   this.updateItem = function(params, id){
-    return $http.put("http://localhost:3000/items/" + id, params)
+    return $http.put("http://localhost:3000/api/items/" + id, params)
   }
 
   this.deleteItem = function(id){
-    return $http.delete("http://localhost:3000/items/" + id)
+    return $http.delete("http://localhost:3000/api/items/" + id)
   }
 }
 

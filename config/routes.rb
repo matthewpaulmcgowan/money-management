@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  #mount_devise_token_auth_for 'User', at: 'auth'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  scope '/api' do
+    mount_devise_token_auth_for 'User', at: '/auth'
+    resources :items, only: [:create, :update, :destroy, :index, :edit]
+  end
 
-  resources :items, only: [:show, :create, :update, :destroy]
-  post '/items/index' => 'items#index'
-  post '/login' => 'users#login'
-  post '/signup' => 'users#signup'
-  get '/loggedIn' => 'users#loggedIn'
   root 'users#home'
   #match '/posts' => 'items#options', :constraints => {:method => 'OPTIONS'}, via: [:options]
   #get '*path' => 'users#index'

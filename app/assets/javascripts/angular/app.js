@@ -1,9 +1,13 @@
 angular
-      .module("app", ['ui.router', 'ngCookies', 'ngMessages'])
-      .config(function($stateProvider, $urlRouterProvider, $httpProvider){
+      .module("app", ['ui.router', 'ngCookies', 'ngMessages', 'ng-token-auth'])
+      .config(function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider){
 
-        token = $("meta[name=\"csrf-token\"]").attr("content")
-        $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+        //token = $("meta[name=\"csrf-token\"]").attr("content")
+        //$httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+
+        $authProvider.configure({
+          apiUrl:                  'http://localhost:3000/api'
+        });
 
         $stateProvider
           .state('home', {
@@ -26,19 +30,26 @@ angular
             templateUrl: '/templates/items/index.html',
             controller: "ItemsController as items",
             resolve: {
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })
           .state('editItem', {
-            url: '/item/:id/edit',
+            url: '/items/:id/edit',
             templateUrl: '/templates/items/edit.html',
             controller: "ItemController as item",
             resolve: {
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
               item: function(ItemService, $stateParams){
-                return ItemService.getItem($stateParams.id)
+                return ItemService.editItem($stateParams.id)
               }
             }
           })
@@ -56,9 +67,12 @@ angular
             templateUrl: '/templates/items/search.html',
             controller: "ItemsController as items",
             resolve: {
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })
@@ -67,9 +81,12 @@ angular
             templateUrl: '/templates/items/large.html',
             controller: "ItemsController as items",
             resolve: {
-              items: function(ItemService, CookiesService){
-                var userId = {userId: CookiesService.getCookie()};
-                return ItemService.getItems(userId);
+              auth: function($auth) {
+                return $auth.validateUser();
+              },
+
+              items: function(ItemService){
+                return ItemService.getItems();
               }
             }
           })

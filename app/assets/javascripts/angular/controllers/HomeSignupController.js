@@ -1,5 +1,6 @@
-function HomeSignupController (UserService, $state, $window, CookiesService){
+function HomeSignupController (UserService, $state){
   var ctrl = this;
+  ctrl.registration_error = "";
 
   ctrl.signout = function(){
     CookiesService.redirectIfSignedIn()
@@ -7,26 +8,23 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
 
   ctrl.signup = function (){
     var params = {
-      username: this.username,
-      password: this.password
+      email: ctrl.email,
+      password: ctrl.password,
+      password_confirmation: ctrl.password_confirmation
     }
 
     UserService
       .userSignup(params)
       .then(function(response){
-        if(response.data.id){
-          CookiesService.setCookie(response.data.id);
-          $state.go("items");
-        }
-        else{
-          $state.reload();
-          $window.alert("User Creation Failed, Please Try Again")
-        }
+        $state.go("items");
+      })
+      .catch(function(response){
+        ctrl.registration_error = response["data"]['errors']['full_messages'][0]
       })
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', "$window", "CookiesService"];
+HomeLoginController.$inject = ['UserService', '$state'];
 
 angular
       .module("app")
