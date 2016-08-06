@@ -11,7 +11,9 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
 
   ctrl.data = items.data;
 
-  ctrl.createItem = function(){
+  ctrl.createItem = function(form){
+
+    ctrl.form = form;
 
     var params = {
       name: ctrl.name,
@@ -23,7 +25,7 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
       .createItem(params)
       .then(function (response) {
         ctrl.data.push(response.data)
-        ctrl.resetForm();
+        ctrl.resetForm(form);
       })
   }
 
@@ -31,7 +33,8 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
     ctrl.name = null;
     ctrl.category = null;
     ctrl.amount = null;
-    items.form.$setPristine();
+    ctrl.form.$setPristine();
+    ctrl.form.$setUntouched();
     debugger;
   }
 
