@@ -31,6 +31,8 @@ class ItemsController < ApplicationController
 
   def edit
     binding.pry
+    @item = Item.find(params[:id])
+    render json: @item
   end
 
 
