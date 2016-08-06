@@ -12,11 +12,11 @@ function ItemService($http){
   }
 
   this.updateItem = function(params, id){
-    return $http.put("http://localhost:3000/items/" + id, params)
+    return $http.put("http://localhost:3000/api/items/" + id, params)
   }
 
   this.deleteItem = function(id){
-    return $http.delete("http://localhost:3000/items/" + id)
+    return $http.delete("http://localhost:3000/api/items/" + id)
   }
 }
 
