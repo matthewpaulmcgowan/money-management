@@ -1,4 +1,4 @@
-function HomeController(CookiesService, UserService, $state){
+function HomeController(UserService, $state){
   var ctrl = this;
   ctrl.checkIfLoggedIn = function () {
     UserService
@@ -16,7 +16,7 @@ function HomeController(CookiesService, UserService, $state){
 
 }
 
-HomeController.$inject = ["CookiesService", 'UserService', '$state'];
+HomeController.$inject = ['UserService', '$state'];
 
 angular
       .module("app")

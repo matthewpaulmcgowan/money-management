@@ -16,27 +16,20 @@ class ItemsController < ApplicationController
     render json: @item
   end
 
-  def show
-    @item = Item.find(params[:id].to_i)
-    render json: @item
-  end
-
   def update
-    @item = Item.find(params[:id])
+    @item = Item.find_by(id: params[:id])
     @item.update(item_params)
     render json: @item
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    @item = Item.find_by(id: params[:id])
     @item.delete
     render json: {}
   end
 
   def edit
-    binding.pry
     @item = Item.find_by(id: params[:id])
-    binding.pry
     if @item
       render json: @item
     else

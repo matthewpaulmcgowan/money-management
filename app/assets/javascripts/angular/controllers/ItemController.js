@@ -1,4 +1,4 @@
-function ItemController(item, ItemService, $state, CookiesService, EditCheckService){
+function ItemController(item, ItemService, $state, EditCheckService){
   var ctrl = this;
   ctrl.data = item.data;
 
@@ -38,7 +38,7 @@ function ItemController(item, ItemService, $state, CookiesService, EditCheckServ
   }
 }
 
-ItemController.$inject = ['item', 'ItemService', '$state', 'CookiesService', 'EditCheckService'];
+ItemController.$inject = ['item', 'ItemService', '$state', 'EditCheckService'];
 
 angular
       .module("app")

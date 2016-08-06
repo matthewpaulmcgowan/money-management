@@ -1,4 +1,4 @@
-function HomeLoginController (UserService, $state, $window, CookiesService, $auth){
+function HomeLoginController (UserService, $state, $auth){
   var ctrl = this;
   ctrl.login_error = '';
 
@@ -25,7 +25,7 @@ function HomeLoginController (UserService, $state, $window, CookiesService, $aut
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', "$window", 'CookiesService', '$auth'];
+HomeLoginController.$inject = ['UserService', '$state', '$auth'];
 
 angular
       .module('app')

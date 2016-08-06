@@ -1,4 +1,4 @@
-function HomeSignupController (UserService, $state, $window, CookiesService){
+function HomeSignupController (UserService, $state){
   var ctrl = this;
   ctrl.registration_error = "";
 
@@ -24,7 +24,7 @@ function HomeSignupController (UserService, $state, $window, CookiesService){
   }
 }
 
-HomeLoginController.$inject = ['UserService', '$state', '$window', 'CookiesService'];
+HomeLoginController.$inject = ['UserService', '$state'];
 
 angular
       .module("app")

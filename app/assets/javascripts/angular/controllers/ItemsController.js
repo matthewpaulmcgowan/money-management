@@ -1,4 +1,4 @@
-function ItemsController(items, CookiesService, $window, $state, $filter, ItemService, UserService){
+function ItemsController(items, $state, $filter, ItemService, UserService){
   var ctrl = this;
 
   ctrl.signOut = function(){
@@ -41,7 +41,7 @@ function ItemsController(items, CookiesService, $window, $state, $filter, ItemSe
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 }
 
-ItemsController.$inject = ['items', 'CookiesService', '$window', '$state', '$filter', 'ItemService', 'UserService'];
+ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService'];
 
 angular
         .module("app")

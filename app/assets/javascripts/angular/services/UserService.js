@@ -1,4 +1,4 @@
-function UserService($http, $auth, $state){
+function UserService($http, $auth){
   this.userLogin = function (params) {
     debugger;
     return $auth.submitLogin(params)
@@ -15,7 +15,7 @@ function UserService($http, $auth, $state){
   this.checkIfLoggedIn = function () {
     return $auth.validateUser();
   }
-  
+
 }
 
 angular
