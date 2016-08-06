@@ -2,8 +2,12 @@ class ItemsController < ApplicationController
 
   def index
     @user = current_user
-    @items = @user.items.all
-    render json: @items
+      if @user
+        @items = @user.items.all
+        render json: @items
+      else
+        render json: {}
+      end
   end
 
   def create
@@ -31,8 +35,13 @@ class ItemsController < ApplicationController
 
   def edit
     binding.pry
-    @item = Item.find(params[:id])
-    render json: @item
+    @item = Item.find_by(id: params[:id])
+    binding.pry
+    if @item
+      render json: @item
+    else
+      render json: {}
+    end
   end
 
 

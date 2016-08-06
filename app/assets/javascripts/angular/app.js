@@ -40,7 +40,7 @@ angular
             }
           })
           .state('editItem', {
-            url: '/item/:id/edit',
+            url: '/items/:id/edit',
             templateUrl: '/templates/items/edit.html',
             controller: "ItemController as item",
             resolve: {
