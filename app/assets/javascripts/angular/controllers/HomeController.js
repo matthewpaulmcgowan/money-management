@@ -1,9 +1,22 @@
-function HomeController(CookiesService){
+function HomeController(CookiesService, UserService, $state){
   var ctrl = this;
-  CookiesService.redirectIfSignedIn();
+  ctrl.checkIfLoggedIn = function () {
+    UserService
+      .checkIfLoggedIn()
+      .then(function (response) {
+        $state.go("items")
+      })
+      .catch(function (response) {
+        debugger;
+      })
+  }
+
+  ctrl.checkIfLoggedIn();
+
+
 }
 
-HomeController.$inject = ["CookiesService"];
+HomeController.$inject = ["CookiesService", 'UserService', '$state'];
 
 angular
       .module("app")

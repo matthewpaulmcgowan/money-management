@@ -11,6 +11,10 @@ function UserService($http, $auth){
   this.signOut = function () {
     return $auth.signOut();
   }
+
+  this.checkIfLoggedIn = function () {
+    return $auth.validateUser();
+  }
 }
 
 angular
