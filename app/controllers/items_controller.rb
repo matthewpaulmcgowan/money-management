@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   def create
     @user = current_user
-    binding.pry
     @item = @user.items.create(item_params)
     render json: @item
   end
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def set_category_params
-    binding.pry
     params[:item][:category_name] = params[:category_name]
   end
 
