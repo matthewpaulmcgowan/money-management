@@ -17,7 +17,7 @@ function ItemsController(items, $state, $filter, ItemService, UserService){
 
     var params = {
       name: ctrl.name,
-      category: ctrl.category,
+      category_name: ctrl.category,
       amount: ctrl.amount
     }
 

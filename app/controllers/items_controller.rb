@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_category_params, only: [:create]
 
   def index
     @user = current_user
@@ -12,6 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @user = current_user
+    binding.pry
     @item = @user.items.create(item_params)
     render json: @item
   end
@@ -37,11 +39,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def set_category_params
+    binding.pry
+    params[:item][:category_name] = params[:category_name]
+  end
+
 
 private
 
   def item_params
-    params.require(:item).permit(:name, :amount, :category)
+    params.require(:item).permit(:name, :amount, :category_name)
   end
 
 end
