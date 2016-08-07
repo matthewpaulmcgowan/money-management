@@ -5,6 +5,5 @@ class User < ActiveRecord::Base
            :omniauthable#, :confirmable
   include DeviseTokenAuth::Concerns::User
   has_many :items
-  #has_secure_password
-  #validates :username, uniqueness: true
+  has_many :categories, through: :items
 end
