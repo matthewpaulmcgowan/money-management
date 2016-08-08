@@ -1,13 +1,10 @@
 class Category < ActiveRecord::Base
   has_many :items
 
-  def get_amount_total
-    @items = Item.where(category_id: self.id, user_id: self.user_id)
-  end
-
-  def self.find_or_create_by_name(category_name)
-    #@category = Category..where(:state => "Wisconsin", :single => true)
-    #if @category === null
-    #  @category = Category.create
+  def get_amount_total(user_id)
+    @items = Item.where(category_id: self.id, user_id: user_id)
+    @items.inject(0) do |sum, item|
+      sum + item.amount
+    end
   end
 end
