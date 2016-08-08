@@ -39,6 +39,16 @@ function ItemsController(items, $state, $filter, ItemService, UserService){
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
+
+  ctrl.getCategoryData = function (){
+    CategoryService
+      .getCategoryData()
+      .then(function (response){
+        debugger;
+        ctrl.categoryData = response.data
+        debugger;
+      })
+  }
 }
 
 ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService'];
