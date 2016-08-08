@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "ng-token-auth": "^0.0.29"
+    "ng-token-auth": "^0.0.29",
+    "chart.js": "npm:chart.js#^2.2.1"
   }
 }
