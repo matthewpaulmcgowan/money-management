@@ -1,4 +1,4 @@
-function ItemsController(items, $state, $filter, ItemService, UserService){
+function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService){
   var ctrl = this;
 
   ctrl.signOut = function(){
@@ -49,9 +49,11 @@ function ItemsController(items, $state, $filter, ItemService, UserService){
         debugger;
       })
   }
+
+  ctrl.getCategoryData();
 }
 
-ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService'];
+ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService'];
 
 angular
         .module("app")
