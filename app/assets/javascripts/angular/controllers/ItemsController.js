@@ -44,9 +44,11 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
     CategoryService
       .getCategoryData()
       .then(function (response){
-        debugger;
-        ctrl.categoryData = response.data
-        debugger;
+        ctrl.chartLabels = Object.keys(response.data);
+        ctrl.chartData = [];
+        for (var category in response.data) {
+          ctrl.chartData.push(response.data[category]);
+        }
       })
   }
 
