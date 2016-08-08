@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
            :omniauthable#, :confirmable
   include DeviseTokenAuth::Concerns::User
   has_many :items
-  has_many :categories
+  has_many :categories, through: :items
 end

@@ -12,4 +12,5 @@ class Item < ActiveRecord::Base
   def standardize_category_name
     @category_name = @category_name.singularize.downcase.strip.gsub(/\s+/, ' ').humanize
   end
+
 end

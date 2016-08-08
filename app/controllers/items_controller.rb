@@ -14,8 +14,6 @@ class ItemsController < ApplicationController
   def create
     @user = current_user
     @item = @user.items.create(item_params)
-    @category = @item.category
-    @category.get_amount_total(@item.user_id)
     render json: @item
   end
 
