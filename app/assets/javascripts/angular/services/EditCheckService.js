@@ -1,6 +1,6 @@
 function EditCheckService() {
 
-  ctrl.checkIfChanged = function (attribute) {
+  this.checkIfChanged = function (attribute) {
     var checked = false;
     for (var i=0;i<attribute.length;i++) {
       if (attribute[i] === 'ng-empty') {
