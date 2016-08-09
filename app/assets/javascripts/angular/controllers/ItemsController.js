@@ -1,5 +1,6 @@
 function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService){
   var ctrl = this;
+  ctrl.data = items.data;
 
   ctrl.signOut = function(){
     UserService
@@ -8,8 +9,6 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
         $state.go("home");
       })
   }
-
-  ctrl.data = items.data;
 
   ctrl.createItem = function(form){
 
@@ -30,8 +29,16 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       })
   }
 
+  ctrl.resetForm = function (){
+    ctrl.name = null;
+    ctrl.category = null;
+    ctrl.amount = null;
+    ctrl.form.$setPristine();
+    ctrl.form.$setUntouched();
+  }
+
   ctrl.addToChart = function (data){
-      var index = CategoryService.addItemToChart(data, ctrl.chartLabels);
+      var index = CategoryService.getCategoryIndex(data.category.name, ctrl.chartLabels);
       if(index !== null){
         debugger;
         ctrl.chartData[index] += data.amount
@@ -40,17 +47,6 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
         ctrl.chartData.push(data.amount)
       }
   }
-
-  ctrl.resetForm = function (){
-    ctrl.name = null;
-    ctrl.category = null;
-    ctrl.amount = null;
-    ctrl.form.$setPristine();
-    ctrl.form.$setUntouched();
-    debugger;
-  }
-
-  ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 
   ctrl.getCategoryData = function (){
     CategoryService
@@ -63,6 +59,8 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
         }
       })
   }
+
+  ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 
   ctrl.getCategoryData();
 }

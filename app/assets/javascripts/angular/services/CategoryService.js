@@ -3,11 +3,11 @@ function CategoryService ($http){
     return $http.get('http://localhost:3000/api/categories');
   }
 
-  this.addItemToChart = function (data, chartLabels) {
+  this.getCategoryIndex = function (category, chartLabels) {
     debugger;
     var found = null;
     for(var i=0;i<chartLabels.length;i++){
-      if(chartLabels[i] === data.category.name){
+      if(chartLabels[i] === category){
         found = i;
       }
     }

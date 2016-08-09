@@ -1,8 +1,8 @@
 <h1>Discretionary Spending</h1>
 <div ng-repeat="item in items.data track by item.id">
   <ul>
-    <li><item id="item" name="item.name" amount="item.amount" category="item.category" index="$index" items="items.data"></item></li>
-  </ul>
+    <li><item id="item" name="item.name" amount="item.amount" category="item.category" index="$index" items="items.data" chartLabels="items.chartLabels" chartData="items.chartData"></item></li>
+  </ul>                                                                                                                              
 </div>
   <form ng-submit="items.createItem(form)" name="form">
     <label for="name">Name</label>
