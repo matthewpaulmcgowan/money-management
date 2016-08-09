@@ -4,13 +4,12 @@ function Item()  {
     scope: {},
     controllerAs: "item",
     bindToController: {
-      id: '=', name: '=', category: '=', amount: '=', index: "=", items: "=", chartLabels: "=", chartData: "="
+      id: '=', name: '=', category: '=', amount: '=', index: "=", items: "=", chartlabels: "=", chartdata: "="
     },
     controller:  function (ItemService, CategoryService) {
       var ctrl = this;
 
       ctrl.delete = function (id) {
-        debugger;
         ItemService
           .deleteItem(id)
           .then(function (response){
@@ -20,14 +19,12 @@ function Item()  {
       }
 
       ctrl.deleteFromChart = function (id){
-        debugger;
-        var index = CategoryService.getCategoryIndex(ctrl.category.name, ctrl.chartLabels);
-        debugger;
-          if(ctrl.chartData[index] - amount === 0){
-            ctrl.chartLabels.splice(index, 1);
-            ctrl.chartData.splice(index, 1);
+        var index = CategoryService.getCategoryIndex(ctrl.category.name, ctrl.chartlabels);
+          if(ctrl.chartdata[index] - ctrl.amount === 0){
+            ctrl.chartlabels.splice(index, 1);
+            ctrl.chartdata.splice(index, 1);
           } else {
-            ctrl.chartData[index] -= amount;
+            ctrl.chartdata[index] -= ctrl.amount;
           }
       }
     }

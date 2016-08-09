@@ -4,14 +4,12 @@ function CategoryService ($http){
   }
 
   this.getCategoryIndex = function (category, chartLabels) {
-    debugger;
     var found = null;
     for(var i=0;i<chartLabels.length;i++){
       if(chartLabels[i] === category){
         found = i;
       }
     }
-    debugger;
     return found;
   }
 }

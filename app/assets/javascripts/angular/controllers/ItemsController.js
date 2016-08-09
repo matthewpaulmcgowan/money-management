@@ -49,18 +49,6 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       }
   }
 
-  //ctrl.getCategoryData = function (){
-  //  CategoryService
-  //    .getCategoryData()
-  //    .then(function (response){
-  //      ctrl.chartLabels = Object.keys(response.data);
-  //      ctrl.chartData = [];
-  //      for (var category in response.data) {
-  //        ctrl.chartData.push(response.data[category]);
-  //      }
-  //    })
-  //}
-
   ctrl.chartClick = function (points){
     ctrl.data = items.data;
     var index = points[0]._index
@@ -74,7 +62,6 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
-  debugger;
 }
 
 ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService', '$scope', 'categoryData'];
