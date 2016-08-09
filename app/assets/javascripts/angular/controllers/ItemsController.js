@@ -60,6 +60,12 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       })
   }
 
+  ctrl.chartClick = function(points){
+    var index = points[0]._index
+    var category = ctrl.chartLabels[index];
+    debugger;
+  }
+
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
 
   ctrl.getCategoryData();
