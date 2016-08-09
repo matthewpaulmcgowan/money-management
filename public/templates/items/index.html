@@ -32,6 +32,8 @@
 <h2><a href="" ui-sref="searchItems()">Search</a></h2>
 <h2><a href="" ui-sref="largeAmountItems()">Items Over $100</a></h2>
 <h2><a href="" ng-click="items.signOut()">Signout</a></h2>
+<h1>Spending By Category</h1>
+<h4><button href="" ng-click="items.resetCategoryFilter()">Reset Filter</button></h4>
 <canvas id="doughnut" class="chart chart-doughnut"
   chart-data="items.chartData" chart-labels="items.chartLabels" chart-click="items.chartClick" >
 </canvas>

@@ -60,12 +60,16 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       })
   }
 
-  ctrl.chartClick = function(points){
+  ctrl.chartClick = function (points){
+    ctrl.data = items.data;
     var index = points[0]._index
     var category = ctrl.chartLabels[index];
     ctrl.data = $filter('byCategory')(ctrl.data, category);
-    debugger;
     $scope.$apply();
+  }
+
+  ctrl.resetCategoryFilter = function (){
+    ctrl.data = items.data;
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
