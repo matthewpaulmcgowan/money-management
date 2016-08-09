@@ -1,4 +1,4 @@
-function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService){
+function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService, $scope){
   var ctrl = this;
   ctrl.data = items.data;
 
@@ -63,7 +63,9 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
   ctrl.chartClick = function(points){
     var index = points[0]._index
     var category = ctrl.chartLabels[index];
+    ctrl.data = $filter('byCategory')(ctrl.data, category);
     debugger;
+    $scope.$apply();
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
@@ -71,7 +73,7 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
   ctrl.getCategoryData();
 }
 
-ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService'];
+ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService', '$scope'];
 
 angular
         .module("app")
