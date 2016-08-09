@@ -3,7 +3,7 @@
 <table>
 <tr><th>Name</th><th>Category</th><th>Amount</th></tr>
 <tr ng-repeat="item in items.data | filter:searchText">
-  <td>{{item.name}}</td><td>{{item.category}}</td><td>{{item.amount | currency}}</td>
+  <td>{{item.name}}</td><td>{{item.category.name}}</td><td>{{item.amount | currency}}</td>
 </tr>
 </table>
 <h1><a href="" ui-sref="items()">Index</a></h1>

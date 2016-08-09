@@ -1,5 +1,6 @@
-function HomeController(UserService, $state){
+function HomeController(UserService, $state) {
   var ctrl = this;
+
   ctrl.checkIfLoggedIn = function () {
     UserService
       .checkIfLoggedIn()
@@ -7,13 +8,10 @@ function HomeController(UserService, $state){
         $state.go("items")
       })
       .catch(function (response) {
-        debugger;
       })
   }
 
   ctrl.checkIfLoggedIn();
-
-
 }
 
 HomeController.$inject = ['UserService', '$state'];

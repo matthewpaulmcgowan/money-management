@@ -16,4 +16,6 @@
 //= require angular-ui-router
 //= require angular-cookie
 //= require ng-token-auth
+//= require chart.js/dist/Chart.js
+//= require angular-chart.js/dist/angular-chart.js
 //= require_tree .

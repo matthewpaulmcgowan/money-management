@@ -1,4 +1,4 @@
-function largeAmount(){
+function largeAmount() {
   return function (items) {
     return items.filter(function (item) {
       return item.amount > 99;

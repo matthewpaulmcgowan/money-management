@@ -1,12 +1,9 @@
 angular
-      .module("app", ['ui.router', 'ngCookies', 'ngMessages', 'ng-token-auth'])
-      .config(function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider){
-
-        //token = $("meta[name=\"csrf-token\"]").attr("content")
-        //$httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = token
+      .module("app", ['ui.router', 'ngCookies', 'ngMessages', 'ng-token-auth', 'chart.js'])
+      .config(function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider) {
 
         $authProvider.configure({
-          apiUrl:                  'http://localhost:3000/api'
+          apiUrl: 'http://localhost:3000/api'
         });
 
         $stateProvider
@@ -34,8 +31,19 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService){
+              items: function(ItemService) {
                 return ItemService.getItems();
+              },
+
+              categoryData: function(CategoryService) {
+                return CategoryService.getCategoryData().then(function (response) {
+                    var chartLabels = Object.keys(response.data);
+                    var chartData = [];
+                    for (var category in response.data) {
+                       chartData.push(response.data[category]);
+                    }
+                    return [chartLabels, chartData];
+                })
               }
             }
           })
@@ -48,7 +56,7 @@ angular
                 return $auth.validateUser();
               },
 
-              item: function(ItemService, $stateParams){
+              item: function(ItemService, $stateParams) {
                 return ItemService.editItem($stateParams.id)
               }
             }
@@ -57,7 +65,7 @@ angular
             params: {id: {}},
             controller: "DeleteItemController",
             resolve: {
-              item: function(ItemService, $stateParams){
+              item: function(ItemService, $stateParams) {
                 return ItemService.deleteItem($stateParams.id)
               }
             }
@@ -71,8 +79,19 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService){
+              items: function(ItemService) {
                 return ItemService.getItems();
+              },
+
+              categoryData: function(CategoryService) {
+                return CategoryService.getCategoryData().then(function (response) {
+                    var chartLabels = Object.keys(response.data);
+                    var chartData = [];
+                    for (var category in response.data) {
+                       chartData.push(response.data[category]);
+                    }
+                    return [chartLabels, chartData];
+                })
               }
             }
           })
@@ -85,8 +104,19 @@ angular
                 return $auth.validateUser();
               },
 
-              items: function(ItemService){
+              items: function(ItemService) {
                 return ItemService.getItems();
+              },
+
+              categoryData: function(CategoryService) {
+                return CategoryService.getCategoryData().then(function (response) {
+                    var chartLabels = Object.keys(response.data);
+                    var chartData = [];
+                    for (var category in response.data) {
+                       chartData.push(response.data[category]);
+                    }
+                    return [chartLabels, chartData];
+                })
               }
             }
           })

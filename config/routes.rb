@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope '/api' do
     mount_devise_token_auth_for 'User', at: '/auth'
     resources :items, only: [:create, :update, :destroy, :index, :edit]
+    resources :categories, only: [:index]
   end
 
   root 'users#home'

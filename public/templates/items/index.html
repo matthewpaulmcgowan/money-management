@@ -1,25 +1,27 @@
 <h1>Discretionary Spending</h1>
 <div ng-repeat="item in items.data track by item.id">
   <ul>
-    <li><item id="item" name="item.name" amount="item.amount" category="item.category" index="$index" items="items.data"></item></li>
+    <li><item id="item" name="item.name" amount="item.amount" category="item.category" index="$index" items="items.data" chartlabels="items.chartLabels" chartdata="items.chartData"></item></li>
   </ul>
 </div>
   <form ng-submit="items.createItem(form)" name="form">
-    <label for="name">Name</label>
+    <label for="name">Name:</label>
     <input name="name" required="required" ng-model="items.name" />
 
     <div ng-messages="form.name.$error" ng-if="form.name.$touched">
           <div ng-message="required">Name is required!</div>
     </div>
 
-    <label for="category">Category</label>
+
+    <label for="category">Category:</label>
+    <select ng-model="items.category" ng-options="category for category in items.chartLabels"></select>
     <input name="category" required="required" ng-model="items.category" />
 
     <div ng-messages="form.category.$error" ng-if="form.category.$touched">
           <div ng-message="required">Category is required!</div>
     </div>
 
-    <label for="amount">Amount</label>
+    <label for="amount">Amount $:</label>
     <input type='number' name="amount" required="required" ng-model="items.amount" />
 
     <div ng-messages="form.amount.$error" ng-if="form.amount.$touched">
@@ -32,3 +34,8 @@
 <h2><a href="" ui-sref="searchItems()">Search</a></h2>
 <h2><a href="" ui-sref="largeAmountItems()">Items Over $100</a></h2>
 <h2><a href="" ng-click="items.signOut()">Signout</a></h2>
+<h1>Spending By Category</h1>
+<h4><button href="" ng-click="items.resetCategoryFilter()">Reset Filter</button></h4>
+<canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="items.chartData" chart-labels="items.chartLabels" chart-click="items.chartClick" >
+</canvas>
