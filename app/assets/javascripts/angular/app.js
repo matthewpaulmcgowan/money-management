@@ -36,6 +36,17 @@ angular
 
               items: function(ItemService){
                 return ItemService.getItems();
+              },
+
+              categoryData: function(CategoryService){
+                return CategoryService.getCategoryData().then(function (response) {
+                    var chartLabels = Object.keys(response.data);
+                    var chartData = [];
+                    for (var category in response.data) {
+                       chartData.push(response.data[category]);
+                    }
+                    return [chartLabels, chartData];
+                })
               }
             }
           })

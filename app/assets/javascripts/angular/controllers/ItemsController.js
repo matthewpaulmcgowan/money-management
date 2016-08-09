@@ -1,6 +1,8 @@
-function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService, $scope){
+function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService, $scope, categoryData){
   var ctrl = this;
   ctrl.data = items.data;
+  ctrl.chartData = categoryData[1];
+  ctrl.chartLabels = categoryData[0];
 
   ctrl.signOut = function(){
     UserService
@@ -40,7 +42,6 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
   ctrl.addToChart = function (data){
       var index = CategoryService.getCategoryIndex(data.category.name, ctrl.chartLabels);
       if(index !== null){
-        debugger;
         ctrl.chartData[index] += data.amount
       } else {
         ctrl.chartLabels.push(data.category.name);
@@ -48,17 +49,17 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       }
   }
 
-  ctrl.getCategoryData = function (){
-    CategoryService
-      .getCategoryData()
-      .then(function (response){
-        ctrl.chartLabels = Object.keys(response.data);
-        ctrl.chartData = [];
-        for (var category in response.data) {
-          ctrl.chartData.push(response.data[category]);
-        }
-      })
-  }
+  //ctrl.getCategoryData = function (){
+  //  CategoryService
+  //    .getCategoryData()
+  //    .then(function (response){
+  //      ctrl.chartLabels = Object.keys(response.data);
+  //      ctrl.chartData = [];
+  //      for (var category in response.data) {
+  //        ctrl.chartData.push(response.data[category]);
+  //      }
+  //    })
+  //}
 
   ctrl.chartClick = function (points){
     ctrl.data = items.data;
@@ -73,11 +74,10 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
   }
 
   ctrl.filteredList = $filter('largeAmount')(ctrl.data);
-
-  ctrl.getCategoryData();
+  debugger;
 }
 
-ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService', '$scope'];
+ItemsController.$inject = ['items', '$state', '$filter', 'ItemService', 'UserService', 'CategoryService', '$scope', 'categoryData'];
 
 angular
         .module("app")

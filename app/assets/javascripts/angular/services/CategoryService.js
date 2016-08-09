@@ -1,6 +1,6 @@
 function CategoryService ($http){
   this.getCategoryData = function () {
-    return $http.get('http://localhost:3000/api/categories');
+    return $http.get('http://localhost:3000/api/categories')
   }
 
   this.getCategoryIndex = function (category, chartLabels) {
