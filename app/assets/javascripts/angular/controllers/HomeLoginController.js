@@ -1,12 +1,8 @@
-function HomeLoginController (UserService, $state, $auth){
+function HomeLoginController (UserService, $state, $auth) {
   var ctrl = this;
   ctrl.login_error = '';
 
-  ctrl.signout = function(){
-    CookiesService.redirectIfSignedIn();
-  }
-
-  ctrl.login = function(){
+  ctrl.login = function () {
 
     var params = {
       email: ctrl.email,
@@ -15,11 +11,10 @@ function HomeLoginController (UserService, $state, $auth){
 
     UserService
       .userLogin(params)
-      .then(function(response){
+      .then(function (response) {
         $state.go("items");
       })
-      .catch(function(response){
-        debugger;
+      .catch(function (response) {
         ctrl.login_error = response['errors'][0]
       })
   }

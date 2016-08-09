@@ -1,18 +1,18 @@
-function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService, $scope, categoryData){
+function ItemsController(items, $state, $filter, ItemService, UserService, CategoryService, $scope, categoryData) {
   var ctrl = this;
   ctrl.data = items.data;
   ctrl.chartData = categoryData[1];
   ctrl.chartLabels = categoryData[0];
 
-  ctrl.signOut = function(){
+  ctrl.signOut = function () {
     UserService
       .signOut()
-      .then(function(response){
+      .then(function (response) {
         $state.go("home");
       })
   }
 
-  ctrl.createItem = function(form){
+  ctrl.createItem = function (form) {
 
     ctrl.form = form;
 
@@ -31,7 +31,7 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       })
   }
 
-  ctrl.resetForm = function (){
+  ctrl.resetForm = function () {
     ctrl.name = null;
     ctrl.category = null;
     ctrl.amount = null;
@@ -39,9 +39,9 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
     ctrl.form.$setUntouched();
   }
 
-  ctrl.addToChart = function (data){
+  ctrl.addToChart = function (data) {
       var index = CategoryService.getCategoryIndex(data.category.name, ctrl.chartLabels);
-      if(index !== null){
+      if (index !== null) {
         ctrl.chartData[index] += data.amount
       } else {
         ctrl.chartLabels.push(data.category.name);
@@ -49,7 +49,7 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       }
   }
 
-  ctrl.chartClick = function (points){
+  ctrl.chartClick = function (points) {
     ctrl.data = items.data;
     var index = points[0]._index
     var category = ctrl.chartLabels[index];
@@ -57,7 +57,7 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
     $scope.$apply();
   }
 
-  ctrl.resetCategoryFilter = function (){
+  ctrl.resetCategoryFilter = function () {
     ctrl.data = items.data;
   }
 

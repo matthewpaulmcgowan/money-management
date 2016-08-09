@@ -12,13 +12,13 @@ function Item()  {
       ctrl.delete = function (id) {
         ItemService
           .deleteItem(id)
-          .then(function (response){
+          .then(function (response) {
             ctrl.items.splice(ctrl.index,1);
             ctrl.deleteFromChart(id);
           })
       }
 
-      ctrl.deleteFromChart = function (id){
+      ctrl.deleteFromChart = function (id) {
         var index = CategoryService.getCategoryIndex(ctrl.category.name, ctrl.chartlabels);
           if(ctrl.chartdata[index] - ctrl.amount === 0){
             ctrl.chartlabels.splice(index, 1);
@@ -33,4 +33,4 @@ function Item()  {
 
 angular
       .module("app")
-      .directive("item", Item)
+      .directive("item", Item);

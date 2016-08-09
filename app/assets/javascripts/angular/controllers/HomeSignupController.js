@@ -1,12 +1,8 @@
-function HomeSignupController (UserService, $state){
+function HomeSignupController (UserService, $state) {
   var ctrl = this;
   ctrl.registration_error = "";
 
-  ctrl.signout = function(){
-    CookiesService.redirectIfSignedIn()
-  }
-
-  ctrl.signup = function (){
+  ctrl.signup = function () {
     var params = {
       email: ctrl.email,
       password: ctrl.password,
@@ -15,10 +11,10 @@ function HomeSignupController (UserService, $state){
 
     UserService
       .userSignup(params)
-      .then(function(response){
+      .then(function (response) {
         $state.go("items");
       })
-      .catch(function(response){
+      .catch(function (response) {
         ctrl.registration_error = response["data"]['errors']['full_messages'][0]
       })
   }
