@@ -25,8 +25,20 @@ function ItemsController(items, $state, $filter, ItemService, UserService, Categ
       .createItem(params)
       .then(function (response) {
         ctrl.data.push(response.data)
+        ctrl.addToChart(response.data)
         ctrl.resetForm(form);
       })
+  }
+
+  ctrl.addToChart = function (data){
+      var index = CategoryService.addItemToChart(data, ctrl.chartLabels);
+      if(index !== null){
+        debugger;
+        ctrl.chartData[index] += data.amount
+      } else {
+        ctrl.chartLabels.push(data.category.name);
+        ctrl.chartData.push(data.amount)
+      }
   }
 
   ctrl.resetForm = function (){
