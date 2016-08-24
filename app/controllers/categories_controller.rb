@@ -2,12 +2,8 @@ class CategoriesController < ApplicationController
 
   def index
     @user = current_user
-    @amount_total = {}
-    @user.categories.uniq.each do |category|
-      @total = category.get_amount_total(@user.id)
-      @amount_total[category.name] = @total
-    end
-    render json: @amount_total 
+    @user_category_totals = @user.calculate_Category_totals
+    render json: @user_category_totals
   end
 
 end
